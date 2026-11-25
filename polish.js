@@ -62,7 +62,7 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
-  ['bag-enhancements.css', 'bag-buttons.css'].forEach(href => {
+  ['bag-enhancements.css', 'bag-layout.css', 'bag-buttons.css'].forEach(href => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
@@ -100,8 +100,6 @@
     const continueButton = $('#continueShopping', drawer);
     const note = footer?.querySelector('p');
 
-    // Keep only ORDER NOW fixed; move the total to the header and supporting
-    // information/actions below the delivery fields in the scrolling region.
     if (header && total) {
       const closeButton = $('#closeCart', header);
       if (closeButton) header.insertBefore(total, closeButton);
@@ -116,6 +114,17 @@
       continueButton.classList.add('scrolling-cart-action');
       scrollArea.appendChild(continueButton);
     }
+
+    // Make the middle section a real bounded, touch-scrollable region.
+    drawer.style.overflow = 'hidden';
+    scrollArea.style.flex = '1 1 0';
+    scrollArea.style.minHeight = '0';
+    scrollArea.style.height = '0';
+    scrollArea.style.overflowY = 'auto';
+    scrollArea.style.overflowX = 'hidden';
+    scrollArea.style.webkitOverflowScrolling = 'touch';
+    scrollArea.style.touchAction = 'pan-y';
+    scrollArea.style.overscrollBehavior = 'contain';
 
     orderButton.textContent = 'ORDER NOW';
     orderButton.setAttribute('type', 'button');
