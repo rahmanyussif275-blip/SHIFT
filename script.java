@@ -1,1 +1,580 @@
-SHIFT.GH — Complete Storefront Catalog, Live Color Engine & Swipeable Body-Fit Preview const BRAND_COLORS = { navy: { name: "Deep Navy", hex: "#1e2640" }, cream: { name: "SHIFT Cream", hex: "#f6e8d0" }, black: { name: "Jet Black", hex: "#141414" }, white: { name: "Optic White", hex: "#f8f7f3" }, charcoal: { name: "Washed Charcoal", hex: "#3c3f46" }, olive: { name: "Studio Olive", hex: "#4a533b" }, lightWash: { name: "Vintage Light Wash", hex: "#8da6c2" }, rawIndigo: { name: "Raw Indigo", hex: "#1b2845" } }; // Complete Tops & Bottoms Lineup (Product-Only Cards, GH₵ Pricing) const PRODUCTS = [ // TOPS { id: "SHF-001", name: "Accra Heritage Puff-Print Boxy Tee", category: "Tops", subCategory: "Boxy Graphic Tees", silhouette: "boxy-tee", graphicText: "SHIFT // 02", gsm: "260 GSM", price: 65, badge: "NEW ARRIVAL", tags: ["New Arrivals", "Best Sellers"], rating: 4.9, reviewsCount: 48, colors: [BRAND_COLORS.navy, BRAND_COLORS.cream, BRAND_COLORS.black, BRAND_COLORS.white], description: "Drop-shoulder boxy round-neck tee crafted from 260 GSM combed Ghanaian cotton with high-density raised puff-print chest typography.", specs: "100% Combed Cotton • 260 GSM Heavy Jersey • Thick 3cm Ribbed Collar • Boxy Cropped Drape", reviews: [ { author: "Kwame M. — East Legon", build: "Normal Build", rating: 5, text: "The collar sits super clean and the puff print feels thick. Best 65 cedi tee in Accra." }, { author: "Kojo T. — Kumasi", build: "Heavy Build", rating: 5, text: "Boxy cut gives plenty of chest room without looking sloppy." } ] }, { id: "SHF-002", name: "Sun-Faded Vintage Street Graphic Tee", category: "Tops", subCategory: "Boxy Graphic Tees", silhouette: "boxy-tee", graphicText: "GHANA CLUB", gsm: "250 GSM", price: 62, badge: "TRENDING", tags: ["New Arrivals"], rating: 4.8, reviewsCount: 31, colors: [BRAND_COLORS.charcoal, BRAND_COLORS.olive, BRAND_COLORS.navy, BRAND_COLORS.cream], description: "Enzyme-washed boxy round-neck tee featuring distressed retro street graphics and a broken-in vintage hand-feel.", specs: "100% Vintage-Washed Cotton • 250 GSM • Relaxed Drop Shoulder", reviews: [ { author: "Yaw B. — Tema", build: "Slim Build", rating: 5, text: "Washed charcoal color looks authentic. Size M drapes nicely." } ] }, { id: "SHF-003", name: "Essential 280 GSM Heavyweight Blank Tee", category: "Tops", subCategory: "Plain Heavyweight Tees", silhouette: "plain-tee", gsm: "280 GSM", price: 55, badge: "BEST SELLER", tags: ["Best Sellers"], rating: 5.0, reviewsCount: 94, colors: [BRAND_COLORS.black, BRAND_COLORS.white, BRAND_COLORS.charcoal, BRAND_COLORS.cream, BRAND_COLORS.olive, BRAND_COLORS.navy], description: "Zero-logo architectural round-neck tee engineered in ultra-dense 280 GSM cotton across core monochrome and earth tones.", specs: "100% Heavyweight Cotton • 280 GSM • Double-Needle Stitching • Structured Fit", reviews: [ { author: "Nana K. — Osu", build: "Normal Build", rating: 5, text: "Bought all five colors. Zero transparency on the white and cream." } ] }, { id: "SHF-004", name: "240 GSM Everyday Studio Crew Tee", category: "Tops", subCategory: "Plain Heavyweight Tees", silhouette: "plain-tee", gsm: "240 GSM", price: 50, badge: "ESSENTIAL", tags: ["Best Sellers"], rating: 4.8, reviewsCount: 67, colors: [BRAND_COLORS.olive, BRAND_COLORS.cream, BRAND_COLORS.black, BRAND_COLORS.white], description: "Breathable yet structured 240 GSM plain round-neck tee built for daily layering in tropical heat.", specs: "100% Ring-Spun Cotton • 240 GSM • Pre-Shrunk", reviews: [ { author: "Fiifi A. — Takoradi", build: "Slim Build", rating: 5, text: "Great weight for Ghanaian weather—holds shape all day." } ] }, { id: "SHF-005", name: "Waffle-Knit Long-Sleeve Thermal Tee", category: "Tops", subCategory: "Thermal & Waffle Tees", silhouette: "long-sleeve", gsm: "270 GSM", price: 68, badge: "LAYER PIECE", tags: ["New Arrivals"], rating: 4.7, reviewsCount: 22, colors: [BRAND_COLORS.cream, BRAND_COLORS.navy, BRAND_COLORS.charcoal, BRAND_COLORS.olive], description: "Textured micro-waffle thermal long-sleeve with ribbed cuffs, designed to wear solo or layered under short-sleeve boxy tees.", specs: "Cotton-Rich Thermal Waffle Weave • 270 GSM • Ribbed Cuffs", reviews: [ { author: "Kofi D. — Spintex", build: "Normal Build", rating: 5, text: "Cream waffle texture looks super premium under a boxy black tee." } ] }, { id: "SHF-006", name: "320 GSM Boxy Pullover Studio Hoodie", category: "Tops", subCategory: "Hoodies", silhouette: "hoodie", gsm: "320 GSM", price: 110, badge: "HEAVY FLEECE", tags: ["Best Sellers", "New Arrivals"], rating: 4.9, reviewsCount: 53, colors: [BRAND_COLORS.navy, BRAND_COLORS.black, BRAND_COLORS.cream, BRAND_COLORS.charcoal], description: "Double-lined hood, no-drawstring clean neckline, and boxy dropped shoulders in brushed 320 GSM fleece.", specs: "320 GSM Brushed Fleece • Double-Lined Hood • Kangaroo Pocket", reviews: [ { author: "Emmanuel O. — Madina", build: "Heavy Build", rating: 5, text: "Hood stands up on its own and doesn't feel tight around the waist." } ] }, { id: "SHF-007", name: "Full-Zip Washed Street Hoodie", category: "Tops", subCategory: "Hoodies", silhouette: "zip-hoodie", gsm: "310 GSM", price: 115, badge: "NEW ARRIVAL", tags: ["New Arrivals"], rating: 4.8, reviewsCount: 19, colors: [BRAND_COLORS.charcoal, BRAND_COLORS.navy, BRAND_COLORS.olive], description: "Heavy-gauge metal zipper with boxy cropped waist and vintage pigment wash.", specs: "310 GSM Loopback Terry • Two-Way Metal Zip • Boxy Fit", reviews: [ { author: "Daniel S. — Legon", build: "Slim Build", rating: 5, text: "Clean crop right at the beltline." } ] }, { id: "SHF-008", name: "Minimalist Heavy Crewneck Sweatshirt", category: "Tops", subCategory: "Crewnecks", silhouette: "crewneck", gsm: "300 GSM", price: 95, badge: "STUDIO CORE", tags: ["Best Sellers"], rating: 4.8, reviewsCount: 28, colors: [BRAND_COLORS.cream, BRAND_COLORS.navy, BRAND_COLORS.olive, BRAND_COLORS.black], description: "Clean-cut French terry crewneck sweatshirt with tonal embroidered SHIFT emblem at the cuff.", specs: "300 GSM French Terry • Ribbed Side Gussets • Relaxed Fit", reviews: [ { author: "Isaac N. — Kumasi", build: "Normal Build", rating: 5, text: "Cream colorway is clean and pairs with any denim." } ] }, { id: "SHF-009", name: "Retro 90s Racing & Football Oversized Jersey", category: "Tops", subCategory: "Sports Jerseys", silhouette: "jersey", graphicText: "07 SHIFT", gsm: "220 GSM", price: 70, badge: "LIMITED DROP", tags: ["New Arrivals", "Best Sellers"], rating: 4.9, reviewsCount: 41, colors: [BRAND_COLORS.navy, BRAND_COLORS.cream, BRAND_COLORS.black], description: "Breathable jacquard-knit sports jersey inspired by retro West African football kits and 90s motorsport.", specs: "220 GSM Jacquard Mesh Knit • Contrast V-Collar • Oversized Fit", reviews: [ { author: "Prince A. — Dansoman", build: "Normal Build", rating: 5, text: "Fits like an authentic vintage jersey without feeling cheap." } ] }, { id: "SHF-010", name: "Heavy Brushed Flannel & Denim Overshirt", category: "Tops", subCategory: "Flannels & Overshirts", silhouette: "overshirt", gsm: "290 GSM", price: 90, badge: "LAYERING", tags: ["New Arrivals"], rating: 4.7, reviewsCount: 16, colors: [BRAND_COLORS.navy, BRAND_COLORS.rawIndigo, BRAND_COLORS.olive, BRAND_COLORS.cream], description: "Structured button-up overshirt with twin utility chest pockets, built to layer open over 240+ GSM blank tees.", specs: "290 GSM Brushed Twill / Denim • Horn Buttons • Relaxed Box Cut", reviews: [ { author: "Michael K. — Airport Residential", build: "Heavy Build", rating: 5, text: "Great structure across the shoulders." } ] }, // BOTTOMS { id: "SHF-011", name: "90s Baggy Wide-Leg Denim Jeans", category: "Bottoms", subCategory: "Baggy Wide-Leg Jeans", silhouette: "baggy-jeans", gsm: "13.5 OZ", price: 120, badge: "BEST SELLER", tags: ["Best Sellers", "New Arrivals"], rating: 4.9, reviewsCount: 64, colors: [BRAND_COLORS.lightWash, BRAND_COLORS.black, BRAND_COLORS.rawIndigo, BRAND_COLORS.charcoal], description: "Full-cut 13.5 oz non-stretch cotton denim engineered for a clean puddle break over bulky sneakers.", specs: "100% Cotton 13.5 oz Denim • Wide Straight Leg • Reinforced Belt Loops", reviews: [ { author: "Gideon T. — Accra", build: "Slim Build", rating: 5, text: "Sits properly on the shoes without dragging too much." }, { author: "Richmond A. — Sunyani", build: "Heavy Build", rating: 5, text: "Thigh room is generous and denim feels sturdy." } ] }, { id: "SHF-012", name: "Extended Inseam Stacked Denim Jeans", category: "Bottoms", subCategory: "Stacked Denim", silhouette: "stacked-jeans", gsm: "13 OZ", price: 125, badge: "STREET FIT", tags: ["New Arrivals"], rating: 4.8, reviewsCount: 29, colors: [BRAND_COLORS.black, BRAND_COLORS.rawIndigo, BRAND_COLORS.lightWash], description: "35-inch elongated inseam with subtle knee paneling designed to stack cleanly from calf to ankle.", specs: "13 oz Cotton Denim • 35\" Elongated Inseam • Articulated Knee Seams",
+
+const products = [
+  {
+    id: 1, name: "Vintage Boxy Graphic Tee", category: "Tops",
+    price: 65, rating: 4.8, reviews: 24,
+    description: "Relaxed boxy silhouette with vintage-inspired graphic styling. Designed for everyday streetwear.",
+    colors: ["Black", "White", "Cream", "Navy"],
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900",
+    extra: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900"
+  },
+  {
+    id: 2, name: "Heavyweight Essential Tee", category: "Tops",
+    price: 55, rating: 4.9, reviews: 31,
+    description: "Minimal heavyweight round-neck essential. Inspired by premium 240+ GSM streetwear.",
+    colors: ["Black", "White", "Charcoal", "Cream", "Olive"],
+    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900",
+    extra: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900"
+  },
+  {
+    id: 3, name: "Thermal Waffle Long Sleeve", category: "Tops",
+    price: 70, rating: 4.7, reviews: 12,
+    description: "Long-sleeve waffle-knit inspired top with a comfortable textured finish.",
+    colors: ["Black", "White", "Cream", "Olive"],
+    image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900",
+    extra: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900"
+  },
+  {
+    id: 4, name: "Oversized Street Hoodie", category: "Tops",
+    price: 120, rating: 4.9, reviews: 45,
+    description: "Oversized hoodie with a relaxed streetwear silhouette and comfortable construction.",
+    colors: ["Black", "Grey", "Cream", "Navy"],
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900",
+    extra: "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=900"
+  },
+  {
+    id: 5, name: "Premium Zip-Up Hoodie", category: "Tops",
+    price: 130, rating: 4.8, reviews: 19,
+    description: "Versatile zip-up hoodie with a relaxed everyday fit.",
+    colors: ["Black", "Grey", "Cream"],
+    image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=900",
+    extra: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900"
+  },
+  {
+    id: 6, name: "Classic Crewneck Sweatshirt", category: "Tops",
+    price: 95, rating: 4.6, reviews: 17,
+    description: "Clean crewneck sweatshirt with a relaxed silhouette.",
+    colors: ["Black", "White", "Grey", "Olive"],
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900",
+    extra: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900"
+  },
+  {
+    id: 7, name: "Retro Oversized Sports Jersey", category: "Tops",
+    price: 90, rating: 4.9, reviews: 37,
+    description: "Oversized sports-inspired jersey drawing from retro football, basketball and racing culture.",
+    colors: ["Black", "White", "Red", "Blue"],
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900",
+    extra: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900"
+  },
+  {
+    id: 8, name: "Baggy Wide-Leg Jeans", category: "Bottoms",
+    price: 150, rating: 4.9, reviews: 29,
+    description: "Relaxed wide-leg denim with a contemporary oversized silhouette.",
+    colors: ["Light Wash", "Faded Black", "Indigo", "Distressed"],
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900",
+    extra: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900"
+  },
+  {
+    id: 9, name: "Stacked Denim Jeans", category: "Bottoms",
+    price: 165, rating: 4.7, reviews: 16,
+    description: "Stacked denim design with a longer streetwear-inspired leg profile.",
+    colors: ["Black", "Blue", "Indigo"],
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900",
+    extra: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900"
+  },
+  {
+    id: 10, name: "Utility Cargo Pants", category: "Bottoms",
+    price: 135, rating: 4.8, reviews: 22,
+    description: "Functional cargo-inspired trousers with relaxed proportions.",
+    colors: ["Black", "Olive", "Khaki", "Grey"],
+    image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?w=900",
+    extra: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900"
+  },
+  {
+    id: 11, name: "Baggy Sweatpants & Joggers", category: "Bottoms",
+    price: 100, rating: 4.8, reviews: 26,
+    description: "Comfort-focused relaxed sweatpants with an easy everyday silhouette.",
+    colors: ["Black", "Grey", "Cream", "Navy"],
+    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=900",
+    extra: "https://images.unsplash.com/photo-1506629905607-d9c36f1a7c20?w=900"
+  },
+  {
+    id: 12, name: "Baggy Denim Jorts", category: "Bottoms",
+    price: 85, rating: 4.7, reviews: 14,
+    description: "Relaxed denim shorts with a baggy streetwear-inspired cut.",
+    colors: ["Blue", "Black", "Light Wash"],
+    image: "https://images.unsplash.com/photo-1511196044526-5cb3bcb7071b?w=900",
+    extra: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900"
+  },
+  {
+    id: 13, name: "Cargo & Athletic Mesh Shorts", category: "Bottoms",
+    price: 75, rating: 4.8, reviews: 21,
+    description: "Relaxed utility and athletic-inspired shorts for everyday comfort.",
+    colors: ["Black", "Olive", "Grey", "Navy"],
+    image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=900",
+    extra: "https://images.unsplash.com/photo-1506629905607-d9c36f1a7c20?w=900"
+  }
+];
+
+const colorHex = {
+  "Black": "#141414",
+  "White": "#ffffff",
+  "Cream": "#f6e8d0",
+  "Navy": "#1e2640",
+  "Charcoal": "#424242",
+  "Olive": "#65734c",
+  "Grey": "#929292",
+  "Red": "#b52b32",
+  "Blue": "#355c91",
+  "Light Wash": "#9bb8ce",
+  "Faded Black": "#393939",
+  "Indigo": "#303c60",
+  "Distressed": "#8293a0",
+  "Khaki": "#b5a47b"
+};
+
+let cart = JSON.parse(localStorage.getItem("shift-cart") || "[]");
+let currentProduct = null;
+let selectedColor = "";
+let selectedSize = "M";
+let selectedFit = "all";
+let currentImage = "";
+
+function saveCart() {
+  localStorage.setItem("shift-cart", JSON.stringify(cart));
+  document.getElementById("cart-count").textContent =
+    cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+function renderProducts(category = "All") {
+  const grid = document.getElementById("product-grid");
+
+  const filtered = products.filter(p =>
+    category === "All" ||
+    (category === "Tops" && p.category === "Tops") ||
+    (category === "Bottoms" && p.category === "Bottoms")
+  );
+
+  grid.innerHTML = filtered.map(p => `
+    <article class="product-card" onclick="openProduct(${p.id})">
+      <div class="product-photo">
+        <img src="${p.image}" alt="${p.name} product photograph"
+             loading="lazy">
+        <span class="product-category">${p.category}</span>
+      </div>
+      <div class="product-info">
+        <h3>${p.name}</h3>
+        <p>★ ${p.rating} · ${p.reviews} reviews</p>
+        <p class="product-price">GH₵ ${p.price.toFixed(2)}</p>
+      </div>
+    </article>
+  `).join("");
+
+  document.getElementById("product-total").textContent =
+    `${filtered.length} pieces`;
+}
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(b =>
+      b.classList.remove("active")
+    );
+    button.classList.add("active");
+    renderProducts(button.dataset.filter);
+  });
+});
+
+function openProduct(id) {
+  currentProduct = products.find(p => p.id === id);
+  selectedColor = currentProduct.colors[0];
+  selectedSize = "M";
+  selectedFit = "all";
+  currentImage = currentProduct.image;
+
+  document.getElementById("product-page").classList.add("show");
+  document.body.style.overflow = "hidden";
+
+  renderProductDetail();
+  window.scrollTo(0, 0);
+}
+
+function closeProduct() {
+  document.getElementById("product-page").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function renderProductDetail() {
+  const p = currentProduct;
+
+  const detail = document.getElementById("product-detail");
+
+  detail.innerHTML = `
+    <div class="detail-layout">
+      <div>
+        <div class="detail-main-image">
+          <img id="main-product-image" src="${currentImage}"
+               alt="${p.name}">
+        </div>
+
+        <div class="detail-thumbnails">
+          <img class="selected" src="${p.image}"
+               onclick="changeImage('${p.image}',this)">
+          <img src="${p.extra}"
+               onclick="changeImage('${p.extra}',this)">
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <p class="eyebrow">${p.category} / SHIFT COLLECTION</p>
+        <h1>${p.name}</h1>
+        <p>★ ${p.rating} (${p.reviews} ratings)</p>
+        <div class="detail-price">GH₵ ${p.price.toFixed(2)}</div>
+        <p class="detail-description">${p.description}</p>
+
+        <div class="option-label">SELECT COLOUR: <span id="color-name">${selectedColor}</span></div>
+        <div class="color-options">
+          ${p.colors.map(c => `
+            <button class="color-option ${c === selectedColor ? "selected" : ""}"
+              style="background:${colorHex[c] || "#888"}"
+              title="${c}" onclick="selectColor('${c}')"></button>
+          `).join("")}
+        </div>
+
+        <p class="option-label">SELECT SIZE</p>
+        <div class="size-options">
+          ${["S","M","L","XL","XXL"].map(s => `
+            <button class="size-option ${s === selectedSize ? "selected" : ""}"
+              onclick="selectSize('${s}')">${s}</button>
+          `).join("")}
+        </div>
+
+        <p class="option-label">QUANTITY</p>
+        <input id="quantity" class="quantity-input" type="number"
+          value="1" min="1" max="20">
+
+        <div class="detail-actions">
+          <button class="primary-button" onclick="addToCart()">
+            ADD TO BAG
+          </button>
+        </div>
+        <p class="small-note">Prices are displayed in Ghana cedis.</p>
+      </div>
+    </div>
+
+    <section class="fit-section">
+      <p class="eyebrow">FIND YOUR PERFECT FIT</p>
+      <h2>See it. Imagine it. Wear it.</h2>
+      <p>Explore how this style looks across different body types.</p>
+
+      <div class="fit-controls">
+        <button class="active" onclick="selectFit('all',this)">SWIPE ALL</button>
+        <button onclick="selectFit('slim',this)">SLIM</button>
+        <button onclick="selectFit('normal',this)">NORMAL</button>
+        <button onclick="selectFit('fat',this)">PLUS SIZE</button>
+      </div>
+
+      <div class="model-gallery" id="model-gallery">
+        ${modelCards()}
+      </div>
+      <p class="fit-note">
+        Model previews are illustrative fit references, not a live virtual
+        try-on. Upload approved photographs of models wearing each actual
+        SHIFT garment to make these previews product-specific.
+      </p>
+    </section>
+
+    <section class="review-section">
+      <p class="eyebrow">CUSTOMER EXPERIENCE</p>
+      <h2>Customer reviews</h2>
+      <div class="rating-summary" id="rating-summary"></div>
+      <div id="review-list"></div>
+
+      <h3 style="margin-top:30px">Write a review</h3>
+      <form class="review-form" onsubmit="submitReview(event)">
+        <input id="review-name" placeholder="Your name" required>
+        <select id="review-rating" required>
+          <option value="5">★★★★★ - Excellent</option>
+          <option value="4">★★★★ - Very good</option>
+          <option value="3">★★★ - Good</option>
+          <option value="2">★★ - Fair</option>
+          <option value="1">★ - Poor</option>
+        </select>
+        <textarea id="review-text" placeholder="Share your experience..."
+          required></textarea>
+        <button class="primary-button" type="submit">SUBMIT REVIEW</button>
+      </form>
+      <p class="small-note">
+        Demo reviews are stored in this browser. They are not verified
+        purchases and are not shared between customers.
+      </p>
+    </section>
+  `;
+
+  renderReviews();
+}
+
+function changeImage(url, element) {
+  currentImage = url;
+  document.getElementById("main-product-image").src = url;
+
+  document.querySelectorAll(".detail-thumbnails img").forEach(img =>
+    img.classList.remove("selected")
+  );
+
+  element.classList.add("selected");
+}
+
+function selectColor(color) {
+  selectedColor = color;
+
+  document.querySelectorAll(".color-option").forEach(btn => {
+    btn.classList.toggle("selected", btn.title === color);
+  });
+
+  document.getElementById("color-name").textContent = color;
+
+  // Approximate colour preview. For accurate colour variants,
+  // upload a separate photograph for every product colour.
+  const image = document.getElementById("main-product-image");
+  image.style.filter = getColorFilter(color);
+}
+
+function getColorFilter(color) {
+  const filters = {
+    Black: "brightness(.55) saturate(.8)",
+    White: "brightness(1.25) saturate(.2)",
+    Cream: "sepia(.3) brightness(1.08)",
+    Navy: "sepia(.3) hue-rotate(175deg) saturate(1.5)",
+    Olive: "sepia(.5) hue-rotate(25deg) saturate(1.2)",
+    Grey: "grayscale(.8)",
+    Charcoal: "grayscale(.8) brightness(.7)",
+    Red: "sepia(.5) saturate(3) hue-rotate(310deg)",
+    Blue: "sepia(.3) saturate(2) hue-rotate(175deg)",
+    "Light Wash": "grayscale(.3) brightness(1.15)",
+    "Faded Black": "grayscale(.7) brightness(.65)",
+    Indigo: "sepia(.4) hue-rotate(175deg)",
+    Distressed: "grayscale(.4) brightness(1.1)",
+    Khaki: "sepia(.5) saturate(.8)",
+    "Faded Black": "grayscale(.7) brightness(.65)"
+  };
+
+  return filters[color] || "none";
+}
+
+function selectSize(size) {
+  selectedSize = size;
+
+  document.querySelectorAll(".size-option").forEach(btn => {
+    btn.classList.toggle("selected", btn.textContent === size);
+  });
+}
+
+// Replace these example portrait URLs with three approved
+// African male model photographs for each garment.
+const modelPhotos = {
+  slim: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
+  normal: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg",
+  fat: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+};
+
+function modelCards() {
+  const models = [
+    { type: "slim", label: "SLIM FIT" },
+    { type: "normal", label: "REGULAR BUILD" },
+    { type: "fat", label: "PLUS SIZE" }
+  ];
+
+  return models
+    .filter(m => selectedFit === "all" || selectedFit === m.type)
+    .map(m => `
+      <article class="model-card">
+        <img src="${modelPhotos[m.type]}" alt="${m.label} model preview"
+             loading="lazy">
+        <h3>${m.label}</h3>
+      </article>
+    `).join("");
+}
+
+function selectFit(fit, button) {
+  selectedFit = fit;
+
+  document.querySelectorAll(".fit-controls button").forEach(btn =>
+    btn.classList.remove("active")
+  );
+
+  button.classList.add("active");
+
+  const gallery = document.getElementById("model-gallery");
+  gallery.classList.toggle("single", fit !== "all");
+  gallery.innerHTML = modelCards();
+}
+
+// REVIEWS
+
+function getReviews() {
+  return JSON.parse(
+    localStorage.getItem("shift-reviews-" + currentProduct.id) || "[]"
+  );
+}
+
+function renderReviews() {
+  const reviews = getReviews();
+  const summary = document.getElementById("rating-summary");
+  const list = document.getElementById("review-list");
+
+  const average = reviews.length
+    ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+    : currentProduct.rating;
+
+  summary.innerHTML =
+    `★ ${average.toFixed(1)} / 5 <span style="font-size:13px;color:#888">(${reviews.length} customer-submitted reviews in this browser)</span>`;
+
+  list.innerHTML = reviews.length
+    ? reviews.map(r => `
+      <article class="review-item">
+        <h4>${escapeHTML(r.name)} · ${"★".repeat(r.rating)}</h4>
+        <p>${escapeHTML(r.text)}</p>
+      </article>
+    `).join("")
+    : "<p>No customer-submitted reviews yet. Be the first to review!</p>";
+}
+
+function submitReview(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("review-name").value.trim();
+  const rating = Number(document.getElementById("review-rating").value);
+  const review = document.getElementById("review-text").value.trim();
+
+  if (!name || !review || rating < 1 || rating > 5) return;
+
+  const reviews = getReviews();
+
+  reviews.unshift({
+    name,
+    rating,
+    text: review
+  });
+
+  localStorage.setItem(
+    "shift-reviews-" + currentProduct.id,
+    JSON.stringify(reviews)
+  );
+
+  event.target.reset();
+  renderReviews();
+  alert("Your review has been added to this browser!");
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+// SHOPPING BAG
+
+function addToCart() {
+  const quantity = Math.max(
+    1,
+    Math.min(20, parseInt(document.getElementById("quantity").value) || 1)
+  );
+
+  const existing = cart.find(item =>
+    item.id === currentProduct.id &&
+    item.color === selectedColor &&
+    item.size === selectedSize
+  );
+
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    cart.push({
+      id: currentProduct.id,
+      name: currentProduct.name,
+      price: currentProduct.price,
+      image: currentProduct.image,
+      color: selectedColor,
+      size: selectedSize,
+      quantity
+    });
+  }
+
+  saveCart();
+  alert("Added to your SHIFT shopping bag!");
+}
+
+function openCart() {
+  closeProduct();
+
+  document.getElementById("cart-page").classList.add("show");
+  document.body.style.overflow = "hidden";
+  renderCart();
+}
+
+function closeCart() {
+  document.getElementById("cart-page").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+
+  if (!cart.length) {
+    container.innerHTML = "<p>Your shopping bag is empty.</p>";
+  } else {
+    container.innerHTML = cart.map((item, index) => `
+      <div class="cart-row">
+        <img src="${item.image}" alt="${escapeHTML(item.name)}">
+        <div style="flex:1">
+          <h4>${escapeHTML(item.name)}</h4>
+          <p>${escapeHTML(item.color)} / ${escapeHTML(item.size)}</p>
+          <p>Quantity: ${item.quantity}</p>
+          <strong>GH₵ ${(item.price * item.quantity).toFixed(2)}</strong>
+        </div>
+        <button onclick="removeCartItem(${index})">REMOVE</button>
+      </div>
+    `).join("");
+  }
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity, 0
+  );
+
+  document.getElementById("cart-total").textContent = total.toFixed(2);
+}
+
+function removeCartItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  renderCart();
+}
+
+function checkout() {
+  if (!cart.length) {
+    alert("Your shopping bag is empty.");
+    return;
+  }
+
+  const lines = cart.map(item =>
+    `${item.name} | ${item.color} | Size ${item.size} | Qty ${item.quantity}`
+  ).join("\n");
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity, 0
+  );
+
+  const message =
+    `Hello SHIFT! I would like to place an order:\n\n${lines}\n\nTotal: GH₵ ${total.toFixed(2)}`;
+
+  // Replace with your official business WhatsApp number.
+  const whatsappNumber = "";
+
+  if (!/^\d{10,15}$/.test(whatsappNumber)) {
+    alert("Online checkout is not configured yet. Add your official WhatsApp business number in script.js.");
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+saveCart();
+renderProducts();
