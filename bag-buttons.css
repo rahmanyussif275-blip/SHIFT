@@ -20,3 +20,46 @@
   transform:translateY(-1px);
 }
 .cart-drawer .cart-line .remove-line:active{transform:translateY(0) scale(.98)}
+
+/* Delivery form: aligned, readable liquid-glass fields; no changes to other bag UI. */
+.cart-drawer #deliveryForm.delivery-form{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-rows:auto auto 42px auto minmax(64px,auto) auto minmax(54px,auto)!important;
+  gap:8px 10px!important;align-items:end!important;
+  margin:2px 22px 16px!important;padding:16px!important;
+  border:1px solid rgba(255,255,255,.82)!important;border-radius:19px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(231,235,243,.46))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 10px 26px rgba(30,38,64,.1)!important;
+  backdrop-filter:blur(20px) saturate(1.25)!important;-webkit-backdrop-filter:blur(20px) saturate(1.25)!important;
+}
+.cart-drawer #deliveryForm h3{grid-column:1/-1!important;grid-row:1!important;margin:0 0 3px!important;font-size:15px!important;line-height:1.3!important;color:#202638!important}
+.cart-drawer #deliveryForm label[for="deliveryName"]{grid-column:1!important;grid-row:2!important}
+.cart-drawer #deliveryForm #deliveryName{grid-column:1!important;grid-row:3!important}
+.cart-drawer #deliveryForm label[for="deliveryPhone"]{grid-column:2!important;grid-row:2!important}
+.cart-drawer #deliveryForm #deliveryPhone{grid-column:2!important;grid-row:3!important}
+.cart-drawer #deliveryForm label[for="deliveryAddress"]{grid-column:1/-1!important;grid-row:4!important}
+.cart-drawer #deliveryForm #deliveryAddress{grid-column:1/-1!important;grid-row:5!important}
+.cart-drawer #deliveryForm label[for="deliveryNotes"]{grid-column:1/-1!important;grid-row:6!important}
+.cart-drawer #deliveryForm #deliveryNotes{grid-column:1/-1!important;grid-row:7!important}
+.cart-drawer #deliveryForm label{display:block!important;margin:0!important;color:#454957!important;font-size:11px!important;font-weight:750!important;line-height:1.35!important;letter-spacing:.015em!important}
+.cart-drawer #deliveryForm input,.cart-drawer #deliveryForm textarea{
+  display:block!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;margin:0!important;
+  border:1px solid rgba(255,255,255,.88)!important;border-radius:12px!important;
+  background:rgba(255,255,255,.66)!important;color:#202638!important;
+  box-shadow:inset 0 1px 3px rgba(30,38,64,.06),0 3px 9px rgba(30,38,64,.045)!important;
+  font:500 13px/1.45 'DM Sans',Arial,sans-serif!important;outline:none!important;
+  backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;
+}
+.cart-drawer #deliveryForm input{height:42px!important;padding:0 11px!important}
+.cart-drawer #deliveryForm textarea{min-height:0!important;padding:9px 11px!important;resize:vertical!important}
+.cart-drawer #deliveryForm #deliveryAddress{height:70px!important}
+.cart-drawer #deliveryForm #deliveryNotes{height:58px!important}
+.cart-drawer #deliveryForm input::placeholder,.cart-drawer #deliveryForm textarea::placeholder{color:#858995!important;opacity:1}
+.cart-drawer #deliveryForm input:focus,.cart-drawer #deliveryForm textarea:focus{border-color:rgba(91,109,153,.65)!important;box-shadow:0 0 0 3px rgba(91,109,153,.14),inset 0 1px 3px rgba(30,38,64,.05)!important}
+@media(max-width:520px){
+ .cart-drawer #deliveryForm.delivery-form{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:none!important;gap:7px!important;margin:2px 14px 14px!important;padding:14px!important}
+ .cart-drawer #deliveryForm h3,.cart-drawer #deliveryForm label[for],.cart-drawer #deliveryForm input,.cart-drawer #deliveryForm textarea{grid-column:1!important;grid-row:auto!important}
+ .cart-drawer #deliveryForm input{height:40px!important}
+ .cart-drawer #deliveryForm #deliveryAddress{height:64px!important}
+ .cart-drawer #deliveryForm #deliveryNotes{height:54px!important}
+}
