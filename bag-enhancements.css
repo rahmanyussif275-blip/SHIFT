@@ -1,0 +1,25 @@
+/* SHIFT bag enhancements: glass cart presentation and purchase completion */
+.cart-drawer{
+  border-left:1px solid rgba(255,255,255,.72);
+  background:linear-gradient(145deg,rgba(250,249,246,.88),rgba(238,235,228,.72));
+  backdrop-filter:blur(24px) saturate(1.35);
+  -webkit-backdrop-filter:blur(24px) saturate(1.35);
+  box-shadow:-20px 0 70px rgba(15,20,32,.22),inset 1px 0 0 rgba(255,255,255,.7);
+}
+.cart-drawer.open{height:100dvh}
+.cart-items{display:flex;flex-direction:column;gap:12px;padding:0 24px 20px}
+.cart-line{
+  width:100%;display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;align-items:center;
+  padding:12px;border:1px solid rgba(255,255,255,.76);border-radius:18px;
+  background:rgba(255,255,255,.48);box-shadow:0 8px 24px rgba(30,38,64,.08),inset 0 1px 0 rgba(255,255,255,.82);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.cart-line img{width:88px;height:106px;object-fit:cover;border-radius:13px;background:#ece9e2}
+.cart-line .line-copy{min-width:0;display:flex;flex-direction:column;gap:5px}
+.cart-line .line-copy b{font-size:13px;line-height:1.35}
+.cart-line .line-meta{font-size:11px;color:#696970}.cart-line .line-price{font-weight:750;color:#1e2640}
+.cart-line .quantity{justify-self:start;margin-top:3px}.cart-line .quantity button{width:30px;height:30px}
+.cart-line .remove-line{margin-left:auto;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.58)}
+.drawer-head{padding:24px;background:rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.62)}
+.cart-footer{background:rgba(250,249,246,.64);border-top:1px solid rgba(255,255,255,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+@media(max-width:520px){.cart-items{padding-inline:14px}.cart-line{grid-template-columns:74px minmax(0,1fr);gap:11px}.cart-line img{width:74px;height:92px}}
