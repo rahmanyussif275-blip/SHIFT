@@ -1,21 +1,30 @@
-/* Main catalogue typography: gently rounded display face, stronger weight, same clean layout. */
+/* Main catalogue typography and button-triggered bag drawer. */
 .product-card .product-name{font-family:'Manrope',Arial,sans-serif;font-weight:650;letter-spacing:-.025em;line-height:1.38;color:#20202a}
 .product-card .card-bottom strong{font-family:'Manrope',Arial,sans-serif;font-size:12px;font-weight:750;letter-spacing:-.02em;color:#1e2640}
 .product-card .card-meta{font-family:'DM Sans',Arial,sans-serif;font-weight:600;letter-spacing:.085em}
-
-/* The bag is a top-bar button and the drawer stays fully inert until that button opens it. */
 .cart-drawer{visibility:hidden;pointer-events:none;transition:transform .28s ease,visibility 0s linear .28s}
 .cart-drawer.open{visibility:visible;pointer-events:auto;transition:transform .28s ease,visibility 0s}
-.scrim{pointer-events:none}
-.scrim.show{pointer-events:auto}
+.scrim{pointer-events:none}.scrim.show{pointer-events:auto}
 .bag-button{display:inline-flex;align-items:center;gap:4px;padding:8px 0;color:#20202a;font-family:'DM Sans',Arial,sans-serif;font-weight:700}
 .bag-button span{flex:0 0 23px;width:23px;height:23px;border:1px solid rgba(255,255,255,.26);border-radius:50%;font-weight:700}
 
-/* Product modal purchase controls stack: sizes, quantity, then the final Add to Bag action. */
-.product-dialog .modal-buy{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch;gap:11px;margin-top:18px}
-.product-dialog .modal-buy label{width:100%;display:grid;grid-template-columns:1fr;gap:7px;font:700 9px/1.35 'DM Sans',Arial,sans-serif;letter-spacing:.1em;color:#44434a}
-.product-dialog .modal-buy label input{width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.86);border-radius:14px;background:rgba(255,255,255,.52);color:#171717;font:500 14px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 4px 14px rgba(30,38,64,.07);backdrop-filter:blur(16px) saturate(1.25);-webkit-backdrop-filter:blur(16px) saturate(1.25)}
-.product-dialog .modal-buy label input:focus{outline:2px solid rgba(30,38,64,.42);outline-offset:2px}
-.product-dialog .modal-buy>.button{width:100%;min-height:48px;justify-self:stretch;border-radius:999px}
-@media(max-width:720px){.product-dialog .modal-buy{grid-template-columns:minmax(0,1fr);gap:10px}.product-dialog .modal-buy>.button{min-height:46px}}
+/* Popup purchase controls: sizes, quantity, then Add to Bag. */
+.product-dialog .modal-info{display:flex;flex-direction:column}
+.product-dialog .modal-buy{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin-top:18px;width:100%}
+.product-dialog .size-options{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;width:100%;order:1}
+.product-dialog .size-options .size{width:100%;height:42px;min-width:0;padding:0 4px;display:grid;place-items:center;border:1px solid rgba(30,38,64,.14);border-radius:13px;background:rgba(255,255,255,.52);color:#1e2640;font:700 10px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.86),0 3px 10px rgba(30,38,64,.06);backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
+.product-dialog .size-options .size.selected{background:rgba(30,38,64,.92);color:#fff;border-color:rgba(255,255,255,.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 5px 14px rgba(30,38,64,.18)}
+.product-dialog .modal-buy label{display:grid;grid-template-columns:1fr;gap:7px;width:100%;order:2;font-size:0;letter-spacing:0;color:#44434a}
+.product-dialog .modal-buy label::before{content:'QUANTITY';display:block;font:700 9px/1.35 'DM Sans',Arial,sans-serif;letter-spacing:.11em;color:#44434a}
+.product-dialog .modal-buy input{width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.82);border-radius:14px;background:rgba(255,255,255,.52);color:#171717;font:500 14px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 4px 14px rgba(30,38,64,.07);backdrop-filter:blur(16px) saturate(1.25);-webkit-backdrop-filter:blur(16px) saturate(1.25)}
+.product-dialog .modal-buy input:focus{outline:2px solid rgba(30,38,64,.42);outline-offset:2px}
+.product-dialog .modal-buy>.button{order:3;width:100%;min-height:48px;margin:0;border-radius:999px;align-self:stretch}
+
+@media(max-width:720px){
+ .product-dialog .size-options{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+ .product-dialog .size-options .size{height:40px;border-radius:11px}
+ .product-dialog .modal-buy{gap:10px;margin-top:16px}
+ .product-dialog .modal-buy>.button{min-height:46px}
+}
+@media(max-width:360px){.product-dialog .size-options{gap:4px}.product-dialog .size-options .size{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.cart-drawer,.scrim{transition:none!important}}
