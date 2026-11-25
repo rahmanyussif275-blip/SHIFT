@@ -33,7 +33,6 @@
     grid.addEventListener('click', event => {
       const button = event.target.closest('[data-wishlist]');
       if (!button) return;
-      event.preventEvent = true;
       event.preventDefault();
       event.stopPropagation();
       const id = button.dataset.wishlist;
@@ -87,13 +86,36 @@
       <label for="deliveryAddress">Delivery location / address <span aria-hidden="true">*</span></label>
       <textarea id="deliveryAddress" name="address" autocomplete="street-address" required maxlength="300" rows="2" placeholder="Area, town and delivery directions"></textarea>
       <label for="deliveryNotes">Additional delivery notes <span class="optional">(optional)</span></label>
-      <textarea id="deliveryNotes" name="notes" maxlength="250" rows="2" placeholder="Anything else we should know?"></textarea>
-      <p class="delivery-hint">We’ll open WhatsApp with your order details so you can send them to SHIFT.</p>`;
+      <textarea id="deliveryNotes" name="notes" maxlength="250" rows="2" placeholder="Anything else we should know?"></textarea>`;
 
+    const drawer = $('#cartDrawer');
     const scrollArea = document.createElement('div');
     scrollArea.className = 'cart-scroll';
     cartItems.parentNode.insertBefore(scrollArea, cartItems);
     scrollArea.append(cartItems, form);
+
+    const header = $('.drawer-head', drawer);
+    const total = $('.cart-total', drawer);
+    const footer = orderButton.closest('.cart-foot, .cart-footer');
+    const continueButton = $('#continueShopping', drawer);
+    const note = footer?.querySelector('p');
+
+    // Keep only ORDER NOW fixed; move the total to the header and supporting
+    // information/actions below the delivery fields in the scrolling region.
+    if (header && total) {
+      const closeButton = $('#closeCart', header);
+      if (closeButton) header.insertBefore(total, closeButton);
+      else header.append(total);
+    }
+    if (note) {
+      note.textContent = 'Your order enquiry is ready. Copy it and send it to SHIFT.GH to confirm availability and delivery. No payment is processed on this demo.';
+      note.classList.add('checkout-note');
+      scrollArea.appendChild(note);
+    }
+    if (continueButton) {
+      continueButton.classList.add('scrolling-cart-action');
+      scrollArea.appendChild(continueButton);
+    }
 
     orderButton.textContent = 'ORDER NOW';
     orderButton.setAttribute('type', 'button');
@@ -112,26 +134,23 @@
       }
 
       const data = new FormData(form);
-      const products = [...document.querySelectorAll('#cartItems .cart-line')];
       const itemLines = cartData.map((item, index) => {
-        const line = products[index];
+        const line = cartItems.querySelectorAll('.cart-line')[index];
         const name = line?.querySelector('.line-copy b')?.textContent.trim() || item.name || 'SHIFT item';
         const color = item.color || line?.querySelector('.line-meta')?.textContent.replace(/.*COLOR:/i, '').replace(/SIZE:.*/i, '').trim() || 'Not specified';
         const size = item.size || 'Not specified';
         const quantity = Number(item.qty) || 1;
         return `${index + 1}. ${name}\n   Color: ${color}\n   Size: ${size}\n   Quantity: ${quantity}`;
       });
-
-      const total = $('#cartTotal')?.textContent.trim() || 'See item prices';
+      const amount = $('#cartTotal')?.querySelector('strong')?.textContent.trim() || $('#cartTotal')?.textContent.trim() || 'See item prices';
       const message = [
         'SHIFT ORDER', '',
         `Name: ${data.get('name').trim()}`,
         `Customer phone: ${data.get('phone').trim()}`,
         `Delivery address: ${data.get('address').trim()}`,
         data.get('notes').trim() ? `Delivery notes: ${data.get('notes').trim()}` : '',
-        '', 'ORDER ITEMS', ...itemLines, '', `Order total: ${total}`
+        '', 'ORDER ITEMS', ...itemLines, '', `Order total: ${amount}`
       ].filter(Boolean).join('\n');
-
       window.open(`https://wa.me/233538623281?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     });
   }
