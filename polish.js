@@ -1,18 +1,18 @@
 (() => {
   'use strict';
-  const $ = (s, root = document) => root.querySelector(s);
-  const $$ = (s, root = document) => [...root.querySelectorAll(s)];
-  const key = 'shift-gh-wishlist-v1';
-  let saved = [];
-  try { saved = JSON.parse(localStorage.getItem(key)) || []; } catch { saved = []; }
-  const persist = () => { try { localStorage.setItem(key, JSON.stringify(saved)); } catch {} };
-  const toast = message => {
-    const node = $('#toast');
-    if (!node) return;
-    node.textContent = message;
-    node.classList.add('show');
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const wishlistKey = 'shift-gh-wishlist-v1';
+  let wishlist = [];
+  try { wishlist = JSON.parse(localStorage.getItem(wishlistKey)) || []; } catch { wishlist = []; }
+  const save = () => { try { localStorage.setItem(wishlistKey, JSON.stringify(wishlist)); } catch {} };
+  const notify = message => {
+    const toast = $('#toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
     clearTimeout(window.shiftToastTimer);
-    window.shiftToastTimer = setTimeout(() => node.classList.remove('show'), 2400);
+    window.shiftToastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
   };
   function syncCards() {
     $$('.product-card').forEach(card => {
@@ -20,12 +20,10 @@
       if (!opener || !heart) return;
       const id = opener.dataset.open;
       heart.dataset.wishlist = id;
-      const active = saved.includes(id);
-      heart.setAttribute('aria-pressed', String(active));
+      const active = wishlist.includes(id);
       heart.textContent = active ? '♥' : '♡';
-      heart.setAttribute('aria-label', `${active ? 'Remove from' : 'Add to'} wishlist`);
-      const quick = $('.add-quick', card);
-      if (quick) quick.textContent = 'CHOOSE OPTIONS +';
+      heart.setAttribute('aria-pressed', String(active));
+      heart.setAttribute('aria-label', active ? 'Remove from wishlist' : 'Add to wishlist');
     });
   }
   const grid = $('#productGrid');
@@ -33,39 +31,34 @@
     syncCards();
     new MutationObserver(syncCards).observe(grid, { childList: true, subtree: true });
     grid.addEventListener('click', event => {
-      const heart = event.target.closest('[data-wishlist]');
-      if (!heart) return;
+      const button = event.target.closest('[data-wishlist]');
+      if (!button) return;
       event.preventDefault();
       event.stopPropagation();
-      const id = heart.dataset.wishlist;
-      saved = saved.includes(id) ? saved.filter(item => item !== id) : [...saved, id];
-      persist();
-      syncCards();
-      toast(saved.includes(id) ? 'Saved to your wishlist on this device.' : 'Removed from your wishlist.');
+      const id = button.dataset.wishlist;
+      wishlist = wishlist.includes(id) ? wishlist.filter(value => value !== id) : [...wishlist, id];
+      save(); syncCards();
+      notify(wishlist.includes(id) ? 'Saved to your wishlist on this device.' : 'Removed from your wishlist.');
     });
   }
   const menu = $('#menuToggle'), nav = $('#nav');
   if (menu && nav) {
     menu.setAttribute('aria-expanded', 'false');
-    menu.addEventListener('click', () => {
-      requestAnimationFrame(() => menu.setAttribute('aria-expanded', String(nav.classList.contains('nav-open'))));
+    menu.addEventListener('click', () => requestAnimationFrame(() => menu.setAttribute('aria-expanded', String(nav.classList.contains('nav-open')))));
+    nav.addEventListener('click', event => {
+      if (event.target.closest('a')) {
+        nav.classList.remove('nav-open');
+        menu.setAttribute('aria-expanded', 'false');
+      }
     });
   }
   document.addEventListener('keydown', event => {
-    if (event.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName)) {
-      event.preventDefault();
-      $('#shop')?.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => $('#searchInput')?.focus(), 250);
-    }
-    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    if ((event.key === '/' || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k')) && !/input|textarea|select/i.test(document.activeElement.tagName)) {
       event.preventDefault();
       $('#shop')?.scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => $('#searchInput')?.focus(), 250);
     }
   });
-  // Respect native dialog dismissal, including clicks on the backdrop.
   const dialog = $('#productDialog');
-  if (dialog) dialog.addEventListener('click', event => {
-    if (event.target === dialog) dialog.close();
-  });
+  if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 })();
