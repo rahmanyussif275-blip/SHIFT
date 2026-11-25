@@ -1,37 +1,21 @@
-/* Solid, tactile liquid-glass controls inside the bag drawer. */
-.cart-drawer button{
-  color:#202638;
-  border:1px solid rgba(255,255,255,.92);
-  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(226,229,236,.76));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(30,38,64,.08),0 4px 12px rgba(30,38,64,.12);
-  backdrop-filter:blur(16px) saturate(1.3);
-  -webkit-backdrop-filter:blur(16px) saturate(1.3);
-  transition:transform .18s ease,background .18s ease,box-shadow .18s ease,border-color .18s ease;
-}
-.cart-drawer button:hover{
-  background:linear-gradient(145deg,#fff,rgba(235,237,243,.94));
-  border-color:rgba(255,255,255,1);
-  box-shadow:inset 0 1px 0 #fff,0 7px 18px rgba(30,38,64,.17);
-  transform:translateY(-1px);
-}
+/* Solid, organized liquid-glass controls in the bag drawer. */
+.cart-drawer .drawer-head{display:flex;align-items:center;justify-content:space-between}
+.cart-drawer .cart-items{gap:14px}.cart-drawer .cart-line{position:relative}
+.cart-drawer .cart-line .line-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:6px;align-items:center}
+.cart-drawer .cart-line .line-copy b{grid-column:1/-1;font-size:14px}.cart-drawer .cart-line .line-meta{grid-column:1/-1}
+.cart-drawer .cart-line .line-price{grid-column:1;grid-row:3}.cart-drawer .cart-line .quantity{grid-column:2;grid-row:3;display:flex;align-items:center;gap:8px}
+.cart-drawer .remove-line{position:absolute;right:10px;top:10px}
+.cart-drawer button{color:#202638;border:1px solid rgba(255,255,255,.92);background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(226,229,236,.82));box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(30,38,64,.08),0 4px 12px rgba(30,38,64,.12);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.cart-drawer button:hover{background:linear-gradient(145deg,#fff,rgba(235,237,243,.96));box-shadow:inset 0 1px 0 #fff,0 7px 18px rgba(30,38,64,.17);transform:translateY(-1px)}
 .cart-drawer button:active{transform:translateY(0) scale(.97);box-shadow:inset 0 2px 5px rgba(30,38,64,.14)}
 .cart-drawer button:focus-visible{outline:2px solid #a7855e;outline-offset:3px}
-.cart-drawer .quantity button,.cart-drawer .remove-line,.cart-drawer .close-button{
-  display:inline-grid;place-items:center;border-radius:999px;font-weight:700;
-}
-.cart-drawer .quantity button{width:34px;height:34px;font-size:17px}
-.cart-drawer .remove-line{width:34px;height:34px;color:#7a4141;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(247,226,223,.88))}
-.cart-drawer #orderEnquiry,.cart-drawer .cart-foot #orderEnquiry{
-  width:100%;min-height:52px;padding:0 22px;border:1px solid rgba(255,255,255,.65);border-radius:999px;
-  color:#fff;font-weight:800;letter-spacing:.08em;
-  background:linear-gradient(135deg,#303b5d,#1e2640 58%,#141b30);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -2px 0 rgba(0,0,0,.18),0 9px 22px rgba(30,38,64,.28);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-}
+.cart-drawer .quantity button,.cart-drawer .remove-line,.cart-drawer .close-button{display:inline-grid;place-items:center;border-radius:999px;font-weight:700}
+.cart-drawer .quantity button{width:34px;height:34px;font-size:17px}.cart-drawer .remove-line{width:34px;height:34px;color:#7a4141;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(247,226,223,.88))}
+.cart-drawer .delivery-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 22px 16px;padding:16px;border:1px solid rgba(255,255,255,.78);border-radius:18px;background:rgba(255,255,255,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 8px 22px rgba(30,38,64,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint{grid-column:1/-1}.cart-drawer .delivery-form h3{margin:0 0 2px;font-size:15px}.cart-drawer .delivery-form label{font-size:11px;font-weight:750;color:#44434a}.cart-drawer .delivery-form label[for="deliveryAddress"],.cart-drawer .delivery-form label[for="deliveryNotes"],.cart-drawer .delivery-form textarea{grid-column:1/-1}
+.cart-drawer .delivery-form input,.cart-drawer .delivery-form textarea{width:100%;border:1px solid rgba(30,38,64,.15);border-radius:11px;background:rgba(255,255,255,.78);box-shadow:inset 0 1px 3px rgba(30,38,64,.05);color:#171717;font:500 13px/1.4 'DM Sans',Arial,sans-serif;outline:none}.cart-drawer .delivery-form input{height:42px;padding:0 12px}.cart-drawer .delivery-form textarea{resize:vertical;min-height:58px;padding:9px 12px}.cart-drawer .delivery-form input:focus,.cart-drawer .delivery-form textarea:focus{border-color:#65718f;box-shadow:0 0 0 3px rgba(101,113,143,.12)}
+.cart-drawer .delivery-form .optional{font-weight:500;color:#77766f}.cart-drawer .delivery-hint{margin:0;color:#77766f;font-size:10px;text-align:center}.cart-drawer #orderEnquiry,.cart-drawer .cart-foot #orderEnquiry{width:100%;min-height:52px;padding:0 22px;border:1px solid rgba(255,255,255,.65);border-radius:999px;color:#fff;font-weight:800;letter-spacing:.08em;background:linear-gradient(135deg,#303b5d,#1e2640 58%,#141b30);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -2px 0 rgba(0,0,0,.18),0 9px 22px rgba(30,38,64,.28)}
 .cart-drawer #orderEnquiry:hover{background:linear-gradient(135deg,#414f76,#263252 58%,#1b243d);box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 12px 26px rgba(30,38,64,.32)}
-.cart-drawer #orderEnquiry:active{transform:translateY(1px) scale(.99)}
-.cart-drawer #continueShopping,.cart-drawer .text-button{
-  min-height:42px;padding:8px 18px;border-radius:999px;font-weight:700;
-  background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(232,233,238,.76));
-}
+.cart-drawer #continueShopping,.cart-drawer .text-button{min-height:42px;padding:8px 18px;border-radius:999px;font-weight:700;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(232,233,238,.78))}
+@media(max-width:520px){.cart-drawer .delivery-form{grid-template-columns:1fr;margin-inline:14px}.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint,.cart-drawer .delivery-form label,.cart-drawer .delivery-form textarea,.cart-drawer .delivery-form input{grid-column:1/-1}.cart-drawer .cart-line{padding-top:16px}}
 @media(prefers-reduced-motion:reduce){.cart-drawer button{transition:none}}
