@@ -18,7 +18,7 @@
     }
   };
 
-  const escapeHtml = value => String(value).replace(/[&<>\"']/g, character => ({
+  const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -73,6 +73,7 @@
         key: `img:${elementSelector(image)}`,
         label: `Image — ${image.alt || image.className || image.tagName}`,
         element: image,
+        original: image.getAttribute('src') || image.src,
         kind: 'image'
       });
     });
@@ -168,6 +169,7 @@
 
       <div class="admin-preview">
         <img id="adminSiteImagePreview" alt="Selected image preview">
+        <span>Preview</span>
       </div>
 
       <div class="admin-actions">
@@ -233,11 +235,9 @@
       write(saved);
 
       if (item.kind === 'image') {
-        item.element.src = item.element.getAttribute('src') || '';
-        applySavedImages();
+        item.element.src = item.original || '';
       } else {
-        item.element.style.backgroundImage =
-          item.original || 'none';
+        item.element.style.backgroundImage = item.original || 'none';
       }
 
       showSelected();
