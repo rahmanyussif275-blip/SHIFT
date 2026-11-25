@@ -62,7 +62,7 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
-  ['bag-enhancements.css', 'bag-layout.css', 'bag-buttons.css', 'delivery-form-layout.css'].forEach(href => {
+  ['bag-enhancements.css', 'bag-buttons.css'].forEach(href => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
@@ -115,16 +115,6 @@
       scrollArea.appendChild(continueButton);
     }
 
-    drawer.style.overflow = 'hidden';
-    scrollArea.style.flex = '1 1 0';
-    scrollArea.style.minHeight = '0';
-    scrollArea.style.height = '0';
-    scrollArea.style.overflowY = 'auto';
-    scrollArea.style.overflowX = 'hidden';
-    scrollArea.style.webkitOverflowScrolling = 'touch';
-    scrollArea.style.touchAction = 'pan-y';
-    scrollArea.style.overscrollBehavior = 'contain';
-
     orderButton.textContent = 'ORDER NOW';
     orderButton.setAttribute('type', 'button');
     orderButton.addEventListener('click', event => {
@@ -166,8 +156,9 @@
   else setupWhatsAppCheckout();
 
   ['admin.js', 'catalog-control.js', 'site-image-admin.js'].forEach(src => {
-  const script = document.createElement('script');
-  script.src = src;
-  script.defer = true;
-  document.head.appendChild(script);
-});
+    const script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  });
+})();
