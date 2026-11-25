@@ -1,3 +1,43 @@
-/* Product-detail fit preview and an explicit, no-payment order enquiry panel. */
-.product-dialog{overflow:auto}.modal-content{align-items:stretch}.modal-info{overflow-y:auto;max-height:88dvh}.product-fit-preview{margin:20px 0 4px;padding-top:16px;border-top:1px solid var(--line)}.fit-preview-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px}.fit-preview-heading>span{font-size:9px;font-weight:700;letter-spacing:.13em}.fit-preview-heading small{color:var(--muted);font-size:9px}.fit-preview-main{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:center}.fit-preview-main img{width:74px;height:88px;object-fit:cover;border-radius:10px;background:#e8e5de}.fit-preview-main>div{display:grid;gap:4px}.fit-preview-name{font:600 13px var(--display)}.fit-preview-detail{font-size:10px;color:var(--muted)}.fit-preview-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:10px}.fit-preview-options button{min-width:0;padding:5px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:8px}.fit-preview-options button.selected{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy)}.fit-preview-options img{width:100%;height:66px;object-fit:cover;border-radius:7px}.fit-preview-options span{display:block;padding:4px 0 1px}.swatch{cursor:pointer}.swatch.selected{outline:2px solid var(--navy);outline-offset:2px}.order-summary{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.order-summary p{margin:0 0 9px;color:var(--muted);font-size:10px;line-height:1.55}.order-summary textarea{display:block;width:100%;min-height:110px;padding:10px;border:1px solid var(--line);background:#fff;font:10px/1.5 var(--body);resize:vertical}.order-summary .button{width:100%;margin-top:8px}.cart-foot{max-height:48vh;overflow-y:auto}.cart-drawer{overflow-y:auto}.cart-items{min-height:80px}
-@media(max-width:720px){.product-dialog{overflow-y:auto}.modal-info{max-height:none;overflow:visible}.product-fit-preview{margin-top:15px}.fit-preview-options img{height:58px}.cart-foot{max-height:45vh}}
+/* Product dialog typography and surface tuned to match SHIFT's paper-and-navy storefront. */
+.product-dialog{
+  color:#171717;
+  background:rgba(248,247,244,.94);
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:0 26px 90px rgba(18,23,37,.28),inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter:blur(22px) saturate(1.12);
+  -webkit-backdrop-filter:blur(22px) saturate(1.12);
+}
+.product-dialog .modal-content{background:linear-gradient(145deg,rgba(248,247,244,.94),rgba(243,241,235,.88))}
+.product-dialog .modal-info{font-family:'DM Sans',Arial,sans-serif;color:#171717}
+.product-dialog .modal-info h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(25px,3vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:600}
+.product-dialog .modal-info>p:not(.eyebrow),
+.product-dialog .modal-info small,
+.product-dialog .fit-preview-detail{font-family:'DM Sans',Arial,sans-serif;line-height:1.65}
+.product-dialog .option-label,
+.product-dialog .fit-preview-heading>span{font-family:'DM Sans',Arial,sans-serif;letter-spacing:.11em}
+.product-dialog .modal-price{font-family:'Space Grotesk',Arial,sans-serif;font-size:17px;font-weight:600}
+.product-dialog .modal-x{
+  top:14px;right:14px;
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  border:1px solid rgba(30,38,64,.12);
+  border-radius:16px;
+  background:rgba(248,247,244,.88);
+  color:#1e2640;
+  box-shadow:0 5px 16px rgba(30,38,64,.12),inset 0 1px 0 rgba(255,255,255,.95);
+  font-size:29px;line-height:1;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.product-dialog .modal-x:hover{transform:scale(1.04);background:#fff;box-shadow:0 8px 20px rgba(30,38,64,.16),inset 0 1px 0 #fff}
+.product-dialog .modal-x:active{transform:scale(.97)}
+.product-dialog .product-fit-preview{background:rgba(255,255,255,.56);border-color:rgba(30,38,64,.08)}
+.product-dialog .fit-preview-options button{background:rgba(248,247,244,.8);color:#1e2640}
+.product-dialog .modal-info .button-dark{font-family:'DM Sans',Arial,sans-serif;letter-spacing:.1em}
+@media(max-width:720px){
+ .product-dialog{background:rgba(248,247,244,.97)}
+ .product-dialog .modal-content{background:linear-gradient(160deg,rgba(248,247,244,.98),rgba(243,241,235,.94))}
+ .product-dialog .modal-x{top:12px;right:12px;width:44px;height:44px;border-radius:15px}
+ .product-dialog .modal-info h2{font-size:26px}
+}
