@@ -61,4 +61,9 @@
   });
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+  const adminScript = document.createElement('script');
+  adminScript.src = 'admin.js';
+  adminScript.defer = true;
+  document.head.appendChild(adminScript);
 })();
