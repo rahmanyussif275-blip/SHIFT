@@ -1,0 +1,35 @@
+/* Rounded garment imagery and restrained liquid-glass controls. */
+.product-photo,
+.product-photo img,
+.modal-image,
+.modal-image img,
+.fit-photo,
+.fit-photo img,
+.collection-tile{border-radius:16px}
+.product-photo{isolation:isolate;background:#ece9e2;box-shadow:0 6px 22px rgba(24,28,40,.055)}
+.product-photo img{transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .35s}
+.product-photo:hover img{transform:scale(1.035);filter:saturate(1.04)}
+.product-photo span{left:12px;bottom:12px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(248,247,244,.68);backdrop-filter:blur(14px) saturate(1.35);-webkit-backdrop-filter:blur(14px) saturate(1.35);box-shadow:0 3px 14px rgba(20,25,35,.12)}
+.collection-tile{overflow:hidden;box-shadow:0 8px 26px rgba(24,28,40,.07)}
+.collection-tile:before{border-radius:inherit}
+.fit-photo{box-shadow:0 12px 34px rgba(0,0,0,.16)}
+/* Soft glass buttons that sit within the photography instead of looking pasted on. */
+.button,.add-quick,.fit-tabs button,.fit-arrows button,.size,.quantity button,.close-button,.bag-button,.heart{transition:background-color .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.button{border-radius:999px;position:relative;overflow:hidden}
+.button-cream{background:rgba(246,232,208,.88);border-color:rgba(255,255,255,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 5px 16px rgba(10,15,28,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.button-outline{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.46);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.button-dark{background:rgba(30,38,64,.93);border-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 5px 18px rgba(30,38,64,.12)}
+.button:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 8px 22px rgba(20,25,35,.16)}
+.add-quick{padding:7px 12px;border:1px solid rgba(30,38,64,.14);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.add-quick:hover{background:rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(30,38,64,.08)}
+.heart{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(30,38,64,.1);border-radius:50%;background:rgba(255,255,255,.58);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.heart:hover{background:rgba(255,255,255,.9);transform:scale(1.04)}
+.fit-tabs button,.fit-arrows button{border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.fit-tabs button.active{background:rgba(246,232,208,.94);box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}
+.fit-arrows button:hover{background:rgba(255,255,255,.18)}
+.size{border-radius:8px}.size.selected{box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.quantity button{border-radius:7px}.modal-x{border:1px solid rgba(255,255,255,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.bag-count{box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.button-outline,.button-cream,.add-quick,.heart,.fit-tabs button,.fit-arrows button,.modal-x{background-color:rgba(255,255,255,.88)}}
+@media(max-width:720px){.product-photo,.product-photo img,.modal-image,.modal-image img,.fit-photo,.fit-photo img,.collection-tile{border-radius:12px}.product-photo span{opacity:1}.button{min-height:44px}.add-quick{padding:6px 9px}}
+@media(prefers-reduced-motion:reduce){.product-photo img{transition:none}}
