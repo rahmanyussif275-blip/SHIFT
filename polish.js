@@ -62,6 +62,12 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
+  // Load the bag drawer stylesheet so the existing bag button opens the glass menu.
+  const bagStyles = document.createElement('link');
+  bagStyles.rel = 'stylesheet';
+  bagStyles.href = 'bag-enhancements.css';
+  document.head.appendChild(bagStyles);
+
   const adminScript = document.createElement('script');
   adminScript.src = 'admin.js';
   adminScript.defer = true;
