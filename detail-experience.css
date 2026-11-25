@@ -10,4 +10,12 @@
 .scrim.show{pointer-events:auto}
 .bag-button{display:inline-flex;align-items:center;gap:4px;padding:8px 0;color:#20202a;font-family:'DM Sans',Arial,sans-serif;font-weight:700}
 .bag-button span{flex:0 0 23px;width:23px;height:23px;border:1px solid rgba(255,255,255,.26);border-radius:50%;font-weight:700}
+
+/* Product modal purchase controls stack: sizes, quantity, then the final Add to Bag action. */
+.product-dialog .modal-buy{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch;gap:11px;margin-top:18px}
+.product-dialog .modal-buy label{width:100%;display:grid;grid-template-columns:1fr;gap:7px;font:700 9px/1.35 'DM Sans',Arial,sans-serif;letter-spacing:.1em;color:#44434a}
+.product-dialog .modal-buy label input{width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.86);border-radius:14px;background:rgba(255,255,255,.52);color:#171717;font:500 14px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 4px 14px rgba(30,38,64,.07);backdrop-filter:blur(16px) saturate(1.25);-webkit-backdrop-filter:blur(16px) saturate(1.25)}
+.product-dialog .modal-buy label input:focus{outline:2px solid rgba(30,38,64,.42);outline-offset:2px}
+.product-dialog .modal-buy>.button{width:100%;min-height:48px;justify-self:stretch;border-radius:999px}
+@media(max-width:720px){.product-dialog .modal-buy{grid-template-columns:minmax(0,1fr);gap:10px}.product-dialog .modal-buy>.button{min-height:46px}}
 @media(prefers-reduced-motion:reduce){.cart-drawer,.scrim{transition:none!important}}
