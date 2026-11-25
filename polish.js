@@ -62,11 +62,13 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
-  // Load the glass drawer styles and add validated delivery/contact details to checkout.
-  const bagStyles = document.createElement('link');
-  bagStyles.rel = 'stylesheet';
-  bagStyles.href = 'bag-enhancements.css';
-  document.head.appendChild(bagStyles);
+  // Load the glass drawer and checkout-control styles.
+  ['bag-enhancements.css', 'bag-buttons.css'].forEach(href => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  });
 
   function setupWhatsAppCheckout() {
     const orderButton = $('#orderEnquiry');
@@ -76,22 +78,27 @@
     const form = document.createElement('form');
     form.id = 'deliveryForm';
     form.className = 'delivery-form';
-    form.noValidate = false;
     form.innerHTML = `
       <h3>Delivery &amp; contact details</h3>
       <label for="deliveryName">Full name <span aria-hidden="true">*</span></label>
       <input id="deliveryName" name="name" autocomplete="name" required maxlength="80" placeholder="Name for delivery">
       <label for="deliveryPhone">Phone number <span aria-hidden="true">*</span></label>
-      <input id="deliveryPhone" name="phone" type="tel" autocomplete="tel" required minlength="7" maxlength="20" pattern="[+0-9()\\s-]{7,20}" placeholder="e.g. 053 862 3281">
+      <input id="deliveryPhone" name="phone" type="tel" autocomplete="tel" required minlength="7" maxlength="20" pattern="[+0-9()\\s-]{7,20}" placeholder="Enter your phone number">
       <label for="deliveryAddress">Delivery location / address <span aria-hidden="true">*</span></label>
       <textarea id="deliveryAddress" name="address" autocomplete="street-address" required maxlength="300" rows="2" placeholder="Area, town and delivery directions"></textarea>
       <label for="deliveryNotes">Additional delivery notes <span class="optional">(optional)</span></label>
       <textarea id="deliveryNotes" name="notes" maxlength="250" rows="2" placeholder="Anything else we should know?"></textarea>
       <p class="delivery-hint">We’ll open WhatsApp with your order details so you can send them to SHIFT.</p>`;
-    orderButton.parentNode.insertBefore(form, orderButton);
+
+    // Keep the products and delivery form together in the scrollable drawer body.
+    const drawer = $('#cartDrawer');
+    const scrollArea = document.createElement('div');
+    scrollArea.className = 'cart-scroll';
+    cartItems.parentNode.insertBefore(scrollArea, cartItems);
+    scrollArea.append(cartItems, form);
+
     orderButton.textContent = 'ORDER NOW';
     orderButton.setAttribute('type', 'button');
-
     orderButton.addEventListener('click', event => {
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -105,25 +112,18 @@
       }
       const data = new FormData(form);
       const lines = [...cartItems.querySelectorAll('.cart-line')].map((line, index) => {
-        const details = line.innerText.replace(/\s+/g, ' ').trim();
-        return `${index + 1}. ${details}`;
+        return `${index + 1}. ${line.innerText.replace(/\\s+/g, ' ').trim()}`;
       });
       const total = $('#cartTotal')?.textContent.trim() || 'See item prices';
       const message = [
-        'SHIFT ORDER',
-        '',
+        'SHIFT ORDER', '',
         `Name: ${data.get('name').trim()}`,
         `Customer phone: ${data.get('phone').trim()}`,
         `Delivery address: ${data.get('address').trim()}`,
         data.get('notes').trim() ? `Delivery notes: ${data.get('notes').trim()}` : '',
-        '',
-        'ORDER ITEMS',
-        ...lines,
-        '',
-        `Order total: ${total}`
-      ].filter(Boolean).join('\n');
-      const whatsappUrl = `https://wa.me/233538623281?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        '', 'ORDER ITEMS', ...lines, '', `Order total: ${total}`
+      ].filter(Boolean).join('\\n');
+      window.open(`https://wa.me/233538623281?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupWhatsAppCheckout, { once: true });
