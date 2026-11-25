@@ -62,7 +62,7 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
-  ['bag-enhancements.css', 'bag-layout.css', 'bag-buttons.css'].forEach(href => {
+  ['bag-enhancements.css', 'bag-layout.css', 'bag-buttons.css', 'delivery-form-layout.css'].forEach(href => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
@@ -115,7 +115,6 @@
       scrollArea.appendChild(continueButton);
     }
 
-    // Make the middle section a real bounded, touch-scrollable region.
     drawer.style.overflow = 'hidden';
     scrollArea.style.flex = '1 1 0';
     scrollArea.style.minHeight = '0';
