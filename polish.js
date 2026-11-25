@@ -33,6 +33,7 @@
     grid.addEventListener('click', event => {
       const button = event.target.closest('[data-wishlist]');
       if (!button) return;
+      event.preventEvent = true;
       event.preventDefault();
       event.stopPropagation();
       const id = button.dataset.wishlist;
@@ -62,7 +63,6 @@
   const dialog = $('#productDialog');
   if (dialog) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
-  // Load the glass drawer and checkout-control styles.
   ['bag-enhancements.css', 'bag-buttons.css'].forEach(href => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -90,8 +90,6 @@
       <textarea id="deliveryNotes" name="notes" maxlength="250" rows="2" placeholder="Anything else we should know?"></textarea>
       <p class="delivery-hint">We’ll open WhatsApp with your order details so you can send them to SHIFT.</p>`;
 
-    // Keep the products and delivery form together in the scrollable drawer body.
-    const drawer = $('#cartDrawer');
     const scrollArea = document.createElement('div');
     scrollArea.className = 'cart-scroll';
     cartItems.parentNode.insertBefore(scrollArea, cartItems);
@@ -102,7 +100,9 @@
     orderButton.addEventListener('click', event => {
       event.preventDefault();
       event.stopImmediatePropagation();
-      if (!cartItems.querySelector('.cart-line')) {
+
+      const cartData = JSON.parse(localStorage.getItem('shift-gh-cart-v2') || '[]');
+      if (!cartData.length) {
         notify('Your bag is empty. Add a piece first.');
         return;
       }
@@ -110,10 +110,18 @@
         form.querySelector(':invalid')?.focus();
         return;
       }
+
       const data = new FormData(form);
-      const lines = [...cartItems.querySelectorAll('.cart-line')].map((line, index) => {
-        return `${index + 1}. ${line.innerText.replace(/\\s+/g, ' ').trim()}`;
+      const products = [...document.querySelectorAll('#cartItems .cart-line')];
+      const itemLines = cartData.map((item, index) => {
+        const line = products[index];
+        const name = line?.querySelector('.line-copy b')?.textContent.trim() || item.name || 'SHIFT item';
+        const color = item.color || line?.querySelector('.line-meta')?.textContent.replace(/.*COLOR:/i, '').replace(/SIZE:.*/i, '').trim() || 'Not specified';
+        const size = item.size || 'Not specified';
+        const quantity = Number(item.qty) || 1;
+        return `${index + 1}. ${name}\n   Color: ${color}\n   Size: ${size}\n   Quantity: ${quantity}`;
       });
+
       const total = $('#cartTotal')?.textContent.trim() || 'See item prices';
       const message = [
         'SHIFT ORDER', '',
@@ -121,8 +129,9 @@
         `Customer phone: ${data.get('phone').trim()}`,
         `Delivery address: ${data.get('address').trim()}`,
         data.get('notes').trim() ? `Delivery notes: ${data.get('notes').trim()}` : '',
-        '', 'ORDER ITEMS', ...lines, '', `Order total: ${total}`
-      ].filter(Boolean).join('\\n');
+        '', 'ORDER ITEMS', ...itemLines, '', `Order total: ${total}`
+      ].filter(Boolean).join('\n');
+
       window.open(`https://wa.me/233538623281?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     });
   }
