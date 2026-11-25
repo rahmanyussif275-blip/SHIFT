@@ -1,11 +1,5 @@
 /* Rounded garment imagery and restrained liquid-glass controls. */
-.product-photo,
-.product-photo img,
-.modal-image,
-.modal-image img,
-.fit-photo,
-.fit-photo img,
-.collection-tile{border-radius:16px}
+.product-photo,.product-photo img,.modal-image,.modal-image img,.fit-photo,.fit-photo img,.collection-tile{border-radius:16px}
 .product-photo{isolation:isolate;background:#ece9e2;box-shadow:0 6px 22px rgba(24,28,40,.055)}
 .product-photo img{transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .35s}
 .product-photo:hover img{transform:scale(1.035);filter:saturate(1.04)}
@@ -13,7 +7,6 @@
 .collection-tile{overflow:hidden;box-shadow:0 8px 26px rgba(24,28,40,.07)}
 .collection-tile:before{border-radius:inherit}
 .fit-photo{box-shadow:0 12px 34px rgba(0,0,0,.16)}
-/* Soft glass buttons that sit within the photography instead of looking pasted on. */
 .button,.add-quick,.fit-tabs button,.fit-arrows button,.size,.quantity button,.close-button,.bag-button,.heart{transition:background-color .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease}
 .button{border-radius:999px;position:relative;overflow:hidden}
 .button-cream{background:rgba(246,232,208,.88);border-color:rgba(255,255,255,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 5px 16px rgba(10,15,28,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
@@ -28,8 +21,31 @@
 .fit-tabs button.active{background:rgba(246,232,208,.94);box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}
 .fit-arrows button:hover{background:rgba(255,255,255,.18)}
 .size{border-radius:8px}.size.selected{box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-.quantity button{border-radius:7px}.modal-x{border:1px solid rgba(255,255,255,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.quantity button{border-radius:7px}
+.modal-x{border:1px solid rgba(255,255,255,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bag-count{box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.button-outline,.button-cream,.add-quick,.heart,.fit-tabs button,.fit-arrows button,.modal-x{background-color:rgba(255,255,255,.88)}}
-@media(max-width:720px){.product-photo,.product-photo img,.modal-image,.modal-image img,.fit-photo,.fit-photo img,.collection-tile{border-radius:12px}.product-photo span{opacity:1}.button{min-height:44px}.add-quick{padding:6px 9px}}
+
+/* Rounded liquid-glass product detail sheet. Keep the garment and controls readable. */
+.product-dialog{isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.72);border-radius:26px;background:rgba(250,249,246,.79);box-shadow:0 28px 100px rgba(9,13,24,.32),inset 0 1px 0 rgba(255,255,255,.9);backdrop-filter:blur(28px) saturate(1.35);-webkit-backdrop-filter:blur(28px) saturate(1.35)}
+.product-dialog::backdrop{background:rgba(14,18,29,.48);backdrop-filter:blur(9px) saturate(.82);-webkit-backdrop-filter:blur(9px) saturate(.82)}
+.modal-content{gap:0;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.08))}
+.modal-image{margin:12px;min-height:0;border-radius:19px;overflow:hidden;background:rgba(225,222,215,.72);box-shadow:0 8px 28px rgba(22,25,34,.1)}
+.modal-image img{border-radius:inherit}
+.modal-info{padding:clamp(24px,4vw,42px);background:linear-gradient(145deg,rgba(255,255,255,.31),rgba(248,247,244,.12))}
+.modal-info .eyebrow{color:#816d50}
+.modal-info h2{letter-spacing:-.045em}
+.modal-info .option-label{color:#44434a}
+.modal-info .size{border-radius:999px;background:rgba(255,255,255,.6);border-color:rgba(30,38,64,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.modal-info .size.selected{background:rgba(30,38,64,.92);color:#fff;border-color:rgba(255,255,255,.45)}
+.modal-info .swatch{border-color:rgba(255,255,255,.9);box-shadow:0 2px 8px rgba(20,20,20,.14)}
+.modal-info .swatch.selected{outline:2px solid rgba(30,38,64,.78);outline-offset:3px}
+.modal-info .modal-buy input{border-radius:12px;background:rgba(255,255,255,.7)}
+.product-fit-preview{padding:16px;border:1px solid rgba(255,255,255,.66);border-radius:18px;background:rgba(255,255,255,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.fit-preview-options button{border-radius:12px;background:rgba(255,255,255,.46);border-color:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.fit-preview-options button.selected{border-color:rgba(30,38,64,.55);box-shadow:0 0 0 1px rgba(30,38,64,.45),inset 0 1px 0 rgba(255,255,255,.75)}
+.fit-preview-options img{border-radius:8px}
+.modal-info .button-dark{background:rgba(30,38,64,.88);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.button-outline,.button-cream,.add-quick,.heart,.fit-tabs button,.fit-arrows button,.modal-x,.product-dialog,.product-fit-preview{background-color:rgba(255,255,255,.94)}}
+@media(max-width:720px){.product-photo,.product-photo img,.modal-image,.modal-image img,.fit-photo,.fit-photo img,.collection-tile{border-radius:12px}.product-photo span{opacity:1}.button{min-height:44px}.add-quick{padding:6px 9px}.product-dialog{width:calc(100vw - 20px);max-width:560px;max-height:calc(100dvh - 20px);overflow-y:auto;border-radius:22px}.modal-content{display:block}.modal-image{height:34dvh;min-height:190px;max-height:280px;margin:9px;border-radius:15px}.modal-info{padding:20px 17px 22px;background:transparent}.product-fit-preview{padding:12px;border-radius:15px}.fit-preview-options img{height:54px}}
 @media(prefers-reduced-motion:reduce){.product-photo img{transition:none}}
