@@ -1,23 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1e2640">
-  <meta name="description" content="SHIFT.GH — Streetwear for those who move differently.">
   <title>SHIFT.GH | Move Different</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
 <header class="site-header">
   <a class="logo" href="#home">SHIFT<span>.</span>GH</a>
 
-  <nav class="desktop-nav">
+  <nav class="desktop-nav" id="mainNav">
     <a href="#home">Home</a>
     <a href="#shop">Shop</a>
     <a href="#tops">Tops</a>
@@ -26,18 +23,11 @@
   </nav>
 
   <div class="header-actions">
-    <button class="icon-button" id="searchToggle" aria-label="Search">⌕</button>
-    <button class="icon-button cart-trigger" id="cartToggle" aria-label="Shopping cart">
-      Bag <span id="cartCount">0</span>
-    </button>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <button id="searchToggle">Search</button>
+    <button id="cartToggle">Bag <span id="cartCount">0</span></button>
+    <button id="menuToggle">☰</button>
   </div>
 </header>
-
-<div class="search-panel" id="searchPanel">
-  <input id="searchInput" type="search" placeholder="Search products...">
-  <button id="searchButton">Search</button>
-</div>
 
 <main>
   <section class="hero" id="home">
@@ -48,193 +38,28 @@
         Streetwear for those who move differently.
         Find your fit. Own your style.
       </p>
-      <a class="primary-button" href="#shop">EXPLORE COLLECTION <span>↗</span></a>
-      <div class="hero-meta">
-        <span>BUILT FOR EVERYDAY MOVEMENT</span>
-        <span>EST. GHANA</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-image"></div>
-      <div class="hero-sticker">MOVE<br>DIFFERENT<br>®</div>
-      <div class="hero-side-label">SHIFT / STREET CULTURE / GH</div>
+      <a class="primary-button" href="#shop">EXPLORE COLLECTION</a>
     </div>
   </section>
 
-  <section class="announcement">
-    <div>NEW SEASON</div><span>✳</span>
-    <div>NEW ENERGY</div><span>✳</span>
-    <div>YOUR OWN SHIFT</div><span>✳</span>
-    <div>NEW SEASON</div>
+  <section id="shop">
+    <h2>Find your uniform.</h2>
   </section>
 
-  <section class="section-intro" id="shop">
-    <div>
-      <p class="eyebrow">THE COLLECTION / 001</p>
-      <h2>Find your <span>uniform.</span></h2>
-    </div>
-    <p>Everyday essentials. Oversized silhouettes.<br>Streetwear that speaks without trying.</p>
-  </section>
-
-  <section class="catalogue-controls">
-    <div class="filter-tabs" id="filterTabs">
-      <button class="filter-button active" data-filter="all">All pieces</button>
-      <button class="filter-button" data-filter="tops">Tops</button>
-      <button class="filter-button" data-filter="bottoms">Bottoms</button>
-    </div>
-    <select id="sortSelect" aria-label="Sort products">
-      <option value="featured">Featured</option>
-      <option value="low">Price: low to high</option>
-      <option value="high">Price: high to low</option>
-      <option value="name">Name: A–Z</option>
-    </select>
-  </section>
-
-  <section class="product-section" id="tops">
-    <div class="category-heading">
-      <div><p class="eyebrow">01 / UPPER BODY</p><h2>TOPS<span>.</span></h2></div>
-      <p>20 pieces</p>
-    </div>
+  <section id="tops">
+    <h2>TOPS.</h2>
     <div class="product-grid" id="topsGrid"></div>
   </section>
 
-  <section class="product-section" id="bottoms">
-    <div class="category-heading">
-      <div><p class="eyebrow">02 / LOWER BODY</p><h2>BOTTOMS<span>.</span></h2></div>
-      <p>20 pieces</p>
-    </div>
+  <section id="bottoms">
+    <h2>BOTTOMS.</h2>
     <div class="product-grid" id="bottomsGrid"></div>
   </section>
 
-  <section class="fit-banner">
-    <div>
-      <p class="eyebrow">YOUR FIT. YOUR RULES.</p>
-      <h2>Different bodies.<br><span>One SHIFT.</span></h2>
-      <p>Explore how different fits look before choosing your size.</p>
-      <a href="#shop" class="light-button">FIND YOUR FIT ↗</a>
-    </div>
-    <div class="fit-banner-art">
-      <span>SLIM</span><span>REGULAR</span><span>RELAXED</span>
-    </div>
-  </section>
-
-  <section class="about-section" id="about">
-    <p class="eyebrow">MORE THAN CLOTHING</p>
-    <h2>SHIFT IS A<br><span>MINDSET.</span></h2>
-    <p>
-      We believe style is personal. SHIFT is built around self-expression,
-      confidence and the freedom to create your own direction.
-    </p>
-    <div class="about-mark">S.</div>
-  </section>
-
-  <section class="newsletter">
-    <div>
-      <p class="eyebrow">STAY IN THE LOOP</p>
-      <h2>Don't miss<br>the next drop.</h2>
-    </div>
-    <form id="newsletterForm">
-      <input type="email" id="newsletterEmail" placeholder="Your email address" required>
-      <button type="submit">JOIN THE LIST ↗</button>
-    </form>
-    <p class="newsletter-message" id="newsletterMessage"></p>
+  <section id="about">
+    <h2>SHIFT IS A MINDSET.</h2>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-main">
-    <div>
-      <a class="logo footer-logo" href="#home">SHIFT<span>.</span>GH</a>
-      <p>Move differently. Wear your identity.</p>
-    </div>
-    <div class="footer-links">
-      <div><strong>EXPLORE</strong><a href="#shop">Shop all</a><a href="#tops">Tops</a><a href="#bottoms">Bottoms</a></div>
-      <div><strong>INFORMATION</strong><a href="#about">About SHIFT</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
-      <div><strong>FOLLOW</strong><a href="#" target="_blank" rel="noopener">Instagram</a><a href="#" target="_blank" rel="noopener">TikTok</a><a href="#" target="_blank" rel="noopener">Facebook</a></div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© <span id="year"></span> SHIFT.GH. ALL RIGHTS RESERVED.</span>
-    <span>MADE TO MOVE DIFFERENT.</span>
-  </div>
-</footer>
-
-<!-- PRODUCT DETAIL -->
-<div class="modal-backdrop" id="productModal">
-  <div class="product-modal modal-box">
-    <button class="close-button" data-close="productModal">×</button>
-    <div class="detail-layout">
-      <div class="detail-image-wrap">
-        <img id="detailImage" src="" alt="Product image">
-      </div>
-      <div class="detail-info">
-        <p class="eyebrow" id="detailCategory"></p>
-        <h2 id="detailName"></h2>
-        <p class="detail-price" id="detailPrice"></p>
-        <p id="detailDescription" class="detail-description"></p>
-
-        <label>COLOUR</label>
-        <div id="detailColors" class="color-options"></div>
-
-        <label>SIZE</label>
-        <div id="detailSizes" class="size-options"></div>
-
-        <label>FIT PREVIEW</label>
-        <div class="fit-tabs" id="fitTabs">
-          <button data-fit="slim" class="active">Slim</button>
-          <button data-fit="regular">Regular</button>
-          <button data-fit="relaxed">Relaxed</button>
-        </div>
-        <div class="fit-preview">
-          <img id="fitImage" src="" alt="Fit preview">
-          <p id="fitCaption">Select a fit to preview.</p>
-        </div>
-
-        <button class="primary-button add-cart-button" id="addToCart">ADD TO BAG — <span id="addPrice"></span></button>
-        <p class="small-note">Product images and fit previews are illustrative until replaced with verified SHIFT product photography.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CART -->
-<div class="drawer-backdrop" id="cartBackdrop"></div>
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="drawer-heading">
-    <h2>YOUR BAG <span id="drawerCount">(0)</span></h2>
-    <button class="close-button" id="closeCart">×</button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-bottom">
-    <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">GH₵0.00</strong></div>
-    <p>Delivery charges, if applicable, are confirmed separately.</p>
-    <button class="primary-button" id="whatsappCheckout">SEND ORDER ENQUIRY ↗</button>
-    <button class="text-button" id="continueShopping">Continue shopping</button>
-  </div>
-</aside>
-
-<!-- REVIEWS -->
-<div class="modal-backdrop" id="reviewsModal">
-  <div class="modal-box reviews-box">
-    <button class="close-button" data-close="reviewsModal">×</button>
-    <p class="eyebrow">CUSTOMER FEEDBACK</p>
-    <h2>Reviews</h2>
-    <div id="reviewList"></div>
-    <form id="reviewForm">
-      <label for="reviewName">Your name</label>
-      <input id="reviewName" required placeholder="Name">
-      <label for="reviewRating">Rating</label>
-      <select id="reviewRating"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select>
-      <label for="reviewText">Your review</label>
-      <textarea id="reviewText" required placeholder="Share your experience..."></textarea>
-      <button class="primary-button" type="submit">SUBMIT REVIEW</button>
-    </form>
-    <p class="small-note">Reviews submitted here are saved only in this browser. They are not verified or shared with other customers.</p>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script src="script.js"></script>
 </body>
 </html>
