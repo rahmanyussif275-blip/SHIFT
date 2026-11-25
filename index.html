@@ -4,208 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#141414">
-  <title>SHIFT | Wear Your Identity</title>
+  <meta name="theme-color" content="#1e2640">
+  <title>SHIFT | Streetwear Reimagined</title>
+  <meta name="description" content="Discover SHIFT streetwear: premium tees, hoodies, jeans, cargos and more.">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
-  <a href="#" class="logo">SHIFT<span>.</span></a>
-
+<header class="header">
+  <a class="logo" href="#">SHIFT<span>.</span></a>
   <nav>
     <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
     <a href="#tops">Tops</a>
     <a href="#bottoms">Bottoms</a>
-    <a href="#reviews">Reviews</a>
   </nav>
-
-  <div class="nav-actions">
-    <button id="searchBtn" aria-label="Search">⌕</button>
-    <button id="cartBtn">Bag (<span id="cartCount">0</span>)</button>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </div>
+  <button class="cart-button" onclick="openCart()">
+    Bag (<span id="cart-count">0</span>)
+  </button>
 </header>
 
-<main id="home">
-
-<section class="hero">
-  <div class="hero-content">
-    <p class="eyebrow">THE NEW STREETWEAR EXPERIENCE</p>
-    <h1>DON'T FOLLOW.<br><span>SHIFT.</span></h1>
-    <p>Streetwear designed for people who define their own identity.</p>
-    <a href="#tops" class="primary-btn">EXPLORE COLLECTION →</a>
-  </div>
-  <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85" alt="T-shirt product photography">
-  </div>
-</section>
-
-<section class="announcement">
-  FREE YOUR STYLE. OWN YOUR IDENTITY. WELCOME TO SHIFT.
-</section>
-
-<section class="shop-section" id="tops">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">COLLECTION 01</p>
-      <h2>TOPS<span>.</span></h2>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="eyebrow">THE NEW STREETWEAR STANDARD</p>
+      <h1>YOUR STYLE.<br><span>YOUR SHIFT.</span></h1>
+      <p>Everyday essentials. Oversized silhouettes. Unapologetic identity.</p>
+      <a href="#shop" class="primary-button">EXPLORE COLLECTION</a>
     </div>
-    <p>Built for everyday expression.</p>
-  </div>
-  <div class="category-tabs">
-    <button class="filter active" data-filter="all">All tops</button>
-    <button class="filter" data-filter="tshirts">T-shirts</button>
-    <button class="filter" data-filter="hoodies">Hoodies</button>
-    <button class="filter" data-filter="sweatshirts">Sweatshirts</button>
-    <button class="filter" data-filter="jerseys">Jerseys</button>
-    <button class="filter" data-filter="shirts">Shirts</button>
-  </div>
-  <div class="product-grid" id="topsGrid"></div>
-</section>
-
-<section class="shop-section alternate" id="bottoms">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">COLLECTION 02</p>
-      <h2>BOTTOMS<span>.</span></h2>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1000" alt="Streetwear clothing collection">
     </div>
-    <p>Comfort meets street culture.</p>
-  </div>
-  <div class="category-tabs">
-    <button class="bottom-filter active" data-filter="all">All bottoms</button>
-    <button class="bottom-filter" data-filter="jeans">Jeans</button>
-    <button class="bottom-filter" data-filter="cargo">Cargo</button>
-    <button class="bottom-filter" data-filter="sweatpants">Sweatpants</button>
-    <button class="bottom-filter" data-filter="shorts">Shorts</button>
-  </div>
-  <div class="product-grid" id="bottomsGrid"></div>
-</section>
+  </section>
 
-<section class="brand-banner">
-  <p>NOT MADE TO FIT IN.</p>
-  <h2>MADE TO <span>STAND OUT.</span></h2>
-  <a href="#tops" class="primary-btn">SHOP SHIFT</a>
-</section>
+  <section class="announcement">
+    <span>SHIFT YOUR STYLE</span>
+    <span>BUILT DIFFERENT</span>
+    <span>WEAR YOUR IDENTITY</span>
+  </section>
 
-<section class="reviews-section" id="reviews">
-  <p class="eyebrow">THE SHIFT COMMUNITY</p>
-  <h2>REAL PEOPLE. REAL REVIEWS.</h2>
-  <div class="rating-summary">
-    <strong id="averageRating">0.0</strong>
-    <div>
-      <div id="averageStars" class="stars">☆☆☆☆☆</div>
-      <p id="reviewCount">No reviews yet</p>
+  <section class="shop-section" id="shop">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">THE SHIFT COLLECTION</p>
+        <h2>Find your fit.</h2>
+      </div>
+      <p id="product-total">13 pieces</p>
     </div>
-  </div>
 
-  <div id="reviewsList" class="reviews-grid"></div>
+    <div class="filters">
+      <button class="filter active" data-filter="All">All</button>
+      <button class="filter" data-filter="Tops">Tops</button>
+      <button class="filter" data-filter="Bottoms">Bottoms</button>
+    </div>
 
-  <div class="review-form">
-    <h3>SHARE YOUR EXPERIENCE</h3>
-    <form id="reviewForm">
-      <input id="reviewName" placeholder="Your name" required maxlength="40">
-      <select id="reviewRating" required>
-        <option value="5">★★★★★ - Excellent</option>
-        <option value="4">★★★★ - Very good</option>
-        <option value="3">★★★ - Good</option>
-        <option value="2">★★ - Fair</option>
-        <option value="1">★ - Poor</option>
-      </select>
-      <textarea id="reviewText" placeholder="Tell us what you think..." required maxlength="500"></textarea>
-      <button class="primary-btn" type="submit">SUBMIT REVIEW</button>
-    </form>
-  </div>
-</section>
+    <div class="catalogue" id="product-grid"></div>
+  </section>
 
+  <section class="brand-banner">
+    <p>NOT JUST CLOTHING.</p>
+    <h2>IT'S A SHIFT IN IDENTITY.</h2>
+    <span>SHIFT — STYLE WITHOUT LIMITS.</span>
+  </section>
 </main>
 
 <!-- PRODUCT DETAIL PAGE -->
-<section id="productPage" class="product-page hidden">
-  <button id="backBtn" class="back-btn">← BACK TO SHOP</button>
+<div id="product-page" class="page-overlay">
+  <button class="back-button" onclick="closeProduct()">← BACK TO SHOP</button>
+  <div id="product-detail"></div>
+</div>
 
-  <div class="detail-layout">
-    <div class="detail-gallery">
-      <img id="detailImage" src="" alt="Clothing product">
-      <div class="gallery-controls">
-        <button id="prevImage">←</button>
-        <span id="imageCounter">1 / 3</span>
-        <button id="nextImage">→</button>
-      </div>
-    </div>
-
-    <div class="detail-info">
-      <p class="eyebrow">SHIFT EXCLUSIVE</p>
-      <h1 id="detailName"></h1>
-      <p id="detailPrice" class="detail-price"></p>
-      <p id="detailDescription"></p>
-
-      <h4>SELECT COLOUR</h4>
-      <div id="colorOptions" class="color-options"></div>
-      <p id="selectedColor"></p>
-
-      <h4>SELECT SIZE</h4>
-      <div id="sizeOptions" class="size-options"></div>
-
-      <h4>BODY FIT PREVIEW</h4>
-      <p class="small-note">See how this style looks on different body types.</p>
-
-      <div class="body-tabs">
-        <button class="body-tab active" data-body="slim">Slim</button>
-        <button class="body-tab" data-body="normal">Normal</button>
-        <button class="body-tab" data-body="fat">Fat</button>
-      </div>
-
-      <div class="model-viewer" id="modelViewer">
-        <img id="modelImage" src="" alt="Model wearing SHIFT clothing" class="hidden">
-        <div id="modelPlaceholder">
-          <span>SHIFT FIT PREVIEW</span>
-          <p>Upload a licensed photograph for this body type to activate the model preview.</p>
-        </div>
-      </div>
-
-      <p class="small-note">Swipe the preview or use the arrows to view available images.</p>
-      <div class="gallery-controls">
-        <button id="prevModel">←</button>
-        <span id="modelCounter">1 / 1</span>
-        <button id="nextModel">→</button>
-      </div>
-
-      <div class="purchase-controls">
-        <input type="number" id="quantity" min="1" value="1">
-        <button id="addToCart" class="primary-btn">ADD TO BAG</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="detail-reviews">
-    <h2>CUSTOMER REVIEWS</h2>
-    <div id="productReviews"></div>
-  </div>
-</section>
-
-<!-- CART DRAWER -->
-<div id="cartDrawer" class="cart-drawer">
-  <div class="cart-header">
-    <h2>YOUR BAG</h2>
-    <button id="closeCart">✕</button>
-  </div>
-  <div id="cartItems"></div>
+<!-- SHOPPING CART -->
+<div id="cart-page" class="page-overlay">
+  <button class="back-button" onclick="closeCart()">← CONTINUE SHOPPING</button>
+  <h2>Your shopping bag</h2>
+  <div id="cart-items"></div>
   <div class="cart-total">
-    <p>Total: <strong id="cartTotal">GH₵0.00</strong></p>
-    <button id="checkoutBtn" class="primary-btn">CONTINUE TO ORDER</button>
-    <p class="small-note">Checkout is a frontend demonstration. No payment is collected.</p>
+    <h3>Total: GH₵ <span id="cart-total">0.00</span></h3>
+    <button class="primary-button" onclick="checkout()">PLACE ORDER</button>
+    <p class="small-note">Checkout is a frontend demo. No payment is collected.</p>
   </div>
 </div>
 
 <footer>
-  <a href="#" class="logo">SHIFT<span>.</span></a>
-  <p>Wear your identity. Define your direction.</p>
+  <a class="logo" href="#">SHIFT<span>.</span></a>
+  <p>Streetwear for the next generation.</p>
   <p>© 2026 SHIFT. All rights reserved.</p>
-  <a href="#home">BACK TO TOP ↑</a>
 </footer>
 
 <script src="script.js"></script>
