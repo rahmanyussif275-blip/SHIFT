@@ -165,8 +165,9 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupWhatsAppCheckout, { once: true });
   else setupWhatsAppCheckout();
 
-  const adminScript = document.createElement('script');
-  adminScript.src = 'admin.js';
-  adminScript.defer = true;
-  document.head.appendChild(adminScript);
-})();
+  ['admin.js', 'catalog-control.js', 'site-image-admin.js'].forEach(src => {
+  const script = document.createElement('script');
+  script.src = src;
+  script.defer = true;
+  document.head.appendChild(script);
+});
