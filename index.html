@@ -1,197 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHIFT.GH — Contemporary Ghanaian Streetwear</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#141414">
+  <title>SHIFT | Wear Your Identity</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Sticky Liquid-Glass Navigation -->
-  <header class="site-header" id="siteHeader">
-    <div class="nav-inner">
-      <a href="#top" class="brand-logo" aria-label="SHIFT.GH Home">
-        SHIFT<span class="brand-dot">.GH</span>
-      </a>
 
-      <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="#top" class="nav-link active">Home</a>
-        <a href="#catalog" class="nav-link" data-filter-trigger="ALL">Shop</a>
-        <a href="#catalog" class="nav-link" data-filter-trigger="New Arrivals">New Arrivals</a>
-        <a href="#collections" class="nav-link">Collections</a>
-        <a href="#catalog" class="nav-link" data-filter-trigger="Tops">Tops</a>
-        <a href="#catalog" class="nav-link" data-filter-trigger="Bottoms">Bottoms</a>
-        <a href="#about" class="nav-link">About Us</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+<header class="navbar">
+  <a href="#" class="logo">SHIFT<span>.</span></a>
 
-      <div class="nav-actions">
-        <button class="icon-btn" id="searchToggleBtn" aria-label="Search catalog">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </button>
-        <button class="icon-btn" id="cartOpenBtn" aria-label="Open shopping bag">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-badge" id="cartCount">0</span>
-        </button>
-        <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#tops">Tops</a>
+    <a href="#bottoms">Bottoms</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button id="searchBtn" aria-label="Search">⌕</button>
+    <button id="cartBtn">Bag (<span id="cartCount">0</span>)</button>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">THE NEW STREETWEAR EXPERIENCE</p>
+    <h1>DON'T FOLLOW.<br><span>SHIFT.</span></h1>
+    <p>Streetwear designed for people who define their own identity.</p>
+    <a href="#tops" class="primary-btn">EXPLORE COLLECTION →</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85" alt="T-shirt product photography">
+  </div>
+</section>
+
+<section class="announcement">
+  FREE YOUR STYLE. OWN YOUR IDENTITY. WELCOME TO SHIFT.
+</section>
+
+<section class="shop-section" id="tops">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">COLLECTION 01</p>
+      <h2>TOPS<span>.</span></h2>
+    </div>
+    <p>Built for everyday expression.</p>
+  </div>
+  <div class="category-tabs">
+    <button class="filter active" data-filter="all">All tops</button>
+    <button class="filter" data-filter="tshirts">T-shirts</button>
+    <button class="filter" data-filter="hoodies">Hoodies</button>
+    <button class="filter" data-filter="sweatshirts">Sweatshirts</button>
+    <button class="filter" data-filter="jerseys">Jerseys</button>
+    <button class="filter" data-filter="shirts">Shirts</button>
+  </div>
+  <div class="product-grid" id="topsGrid"></div>
+</section>
+
+<section class="shop-section alternate" id="bottoms">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">COLLECTION 02</p>
+      <h2>BOTTOMS<span>.</span></h2>
+    </div>
+    <p>Comfort meets street culture.</p>
+  </div>
+  <div class="category-tabs">
+    <button class="bottom-filter active" data-filter="all">All bottoms</button>
+    <button class="bottom-filter" data-filter="jeans">Jeans</button>
+    <button class="bottom-filter" data-filter="cargo">Cargo</button>
+    <button class="bottom-filter" data-filter="sweatpants">Sweatpants</button>
+    <button class="bottom-filter" data-filter="shorts">Shorts</button>
+  </div>
+  <div class="product-grid" id="bottomsGrid"></div>
+</section>
+
+<section class="brand-banner">
+  <p>NOT MADE TO FIT IN.</p>
+  <h2>MADE TO <span>STAND OUT.</span></h2>
+  <a href="#tops" class="primary-btn">SHOP SHIFT</a>
+</section>
+
+<section class="reviews-section" id="reviews">
+  <p class="eyebrow">THE SHIFT COMMUNITY</p>
+  <h2>REAL PEOPLE. REAL REVIEWS.</h2>
+  <div class="rating-summary">
+    <strong id="averageRating">0.0</strong>
+    <div>
+      <div id="averageStars" class="stars">☆☆☆☆☆</div>
+      <p id="reviewCount">No reviews yet</p>
+    </div>
+  </div>
+
+  <div id="reviewsList" class="reviews-grid"></div>
+
+  <div class="review-form">
+    <h3>SHARE YOUR EXPERIENCE</h3>
+    <form id="reviewForm">
+      <input id="reviewName" placeholder="Your name" required maxlength="40">
+      <select id="reviewRating" required>
+        <option value="5">★★★★★ - Excellent</option>
+        <option value="4">★★★★ - Very good</option>
+        <option value="3">★★★ - Good</option>
+        <option value="2">★★ - Fair</option>
+        <option value="1">★ - Poor</option>
+      </select>
+      <textarea id="reviewText" placeholder="Tell us what you think..." required maxlength="500"></textarea>
+      <button class="primary-btn" type="submit">SUBMIT REVIEW</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- PRODUCT DETAIL PAGE -->
+<section id="productPage" class="product-page hidden">
+  <button id="backBtn" class="back-btn">← BACK TO SHOP</button>
+
+  <div class="detail-layout">
+    <div class="detail-gallery">
+      <img id="detailImage" src="" alt="Clothing product">
+      <div class="gallery-controls">
+        <button id="prevImage">←</button>
+        <span id="imageCounter">1 / 3</span>
+        <button id="nextImage">→</button>
       </div>
     </div>
 
-    <!-- Expandable Search Bar -->
-    <div class="search-drawer" id="searchDrawer">
-      <div class="container search-inner">
-        <input type="search" id="searchInput" placeholder="Search 240+ GSM tees, boxy graphics, baggy jeans, jorts, hoodies..." aria-label="Search products" />
-        <button class="btn-text" id="searchClearBtn">Clear</button>
+    <div class="detail-info">
+      <p class="eyebrow">SHIFT EXCLUSIVE</p>
+      <h1 id="detailName"></h1>
+      <p id="detailPrice" class="detail-price"></p>
+      <p id="detailDescription"></p>
+
+      <h4>SELECT COLOUR</h4>
+      <div id="colorOptions" class="color-options"></div>
+      <p id="selectedColor"></p>
+
+      <h4>SELECT SIZE</h4>
+      <div id="sizeOptions" class="size-options"></div>
+
+      <h4>BODY FIT PREVIEW</h4>
+      <p class="small-note">See how this style looks on different body types.</p>
+
+      <div class="body-tabs">
+        <button class="body-tab active" data-body="slim">Slim</button>
+        <button class="body-tab" data-body="normal">Normal</button>
+        <button class="body-tab" data-body="fat">Fat</button>
+      </div>
+
+      <div class="model-viewer" id="modelViewer">
+        <img id="modelImage" src="" alt="Model wearing SHIFT clothing" class="hidden">
+        <div id="modelPlaceholder">
+          <span>SHIFT FIT PREVIEW</span>
+          <p>Upload a licensed photograph for this body type to activate the model preview.</p>
+        </div>
+      </div>
+
+      <p class="small-note">Swipe the preview or use the arrows to view available images.</p>
+      <div class="gallery-controls">
+        <button id="prevModel">←</button>
+        <span id="modelCounter">1 / 1</span>
+        <button id="nextModel">→</button>
+      </div>
+
+      <div class="purchase-controls">
+        <input type="number" id="quantity" min="1" value="1">
+        <button id="addToCart" class="primary-btn">ADD TO BAG</button>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-      <a href="#top" class="mobile-link">Home</a>
-      <a href="#catalog" class="mobile-link" data-filter-trigger="ALL">Shop All</a>
-      <a href="#catalog" class="mobile-link" data-filter-trigger="Tops">Tops</a>
-      <a href="#catalog" class="mobile-link" data-filter-trigger="Bottoms">Bottoms</a>
-      <a href="#collections" class="mobile-link">Collections</a>
-      <a href="#about" class="mobile-link">About SHIFT.GH</a>
-      <a href="#contact" class="mobile-link">Contact</a>
-    </nav>
-  </header>
+  <div class="detail-reviews">
+    <h2>CUSTOMER REVIEWS</h2>
+    <div id="productReviews"></div>
+  </div>
+</section>
 
-  <main id="top">
-    <!-- Editorial Hero Section with Dark-to-White Fading Transition -->
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <span class="hero-eyebrow">ACCRA • GHANA — SEASON 02 ARCHIVE</span>
-        <h1 class="hero-oversized-logo">SHIFT<span class="cream-accent">.GH</span></h1>
-        <p class="hero-statement">
-          Engineered silhouettes, heavyweight 240+ GSM cottons, and unapologetic street proportions built for modern Ghanaian youth culture.
-        </p>
-        <div class="hero-cta-row">
-          <a href="#catalog" class="btn btn-primary">SHOP NOW</a>
-          <a href="#collections" class="btn btn-glass">EXPLORE COLLECTION</a>
-        </div>
-      </div>
-      <div class="hero-fade-bottom"></div>
-    </section>
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>YOUR BAG</h2>
+    <button id="closeCart">✕</button>
+  </div>
+  <div id="cartItems"></div>
+  <div class="cart-total">
+    <p>Total: <strong id="cartTotal">GH₵0.00</strong></p>
+    <button id="checkoutBtn" class="primary-btn">CONTINUE TO ORDER</button>
+    <p class="small-note">Checkout is a frontend demonstration. No payment is collected.</p>
+  </div>
+</div>
 
-    <!-- Featured Collections Strip -->
-    <section class="section container" id="collections">
-      <div class="section-header">
-        <div>
-          <span class="section-tag">CURATED EDITS</span>
-          <h2>Featured Collections</h2>
-        </div>
-        <p class="section-sub">Product-only studio presentation. Tap any piece for interactive color & body-fit previews.</p>
-      </div>
+<footer>
+  <a href="#" class="logo">SHIFT<span>.</span></a>
+  <p>Wear your identity. Define your direction.</p>
+  <p>© 2026 SHIFT. All rights reserved.</p>
+  <a href="#home">BACK TO TOP ↑</a>
+</footer>
 
-      <div class="collections-grid">
-        <button class="collection-card navy-card" data-filter-trigger="New Arrivals">
-          <span class="pill">DROP 02</span>
-          <h3>New Arrivals</h3>
-          <p>Fresh puff-prints, vintage washes & stacked denim.</p>
-          <span class="card-arrow">Explore &rarr;</span>
-        </button>
-
-        <button class="collection-card cream-card" data-filter-trigger="Tops">
-          <span class="pill dark">HEAVYWEIGHT</span>
-          <h3>Tops &amp; Layers</h3>
-          <p>240+ GSM tees, thermals, jerseys &amp; boxy hoodies.</p>
-          <span class="card-arrow">Shop Tops &rarr;</span>
-        </button>
-
-        <button class="collection-card offwhite-card" data-filter-trigger="Bottoms">
-          <span class="pill">PROPORTIONS</span>
-          <h3>Bottoms &amp; Denim</h3>
-          <p>Wide-leg jeans, cargos, jorts &amp; athletic mesh shorts.</p>
-          <span class="card-arrow">Shop Bottoms &rarr;</span>
-        </button>
-
-        <button class="collection-card dark-card" data-filter-trigger="Best Sellers">
-          <span class="pill cream">ESSENTIALS</span>
-          <h3>Best Sellers</h3>
-          <p>Everyday staples priced from GH₵ 55.</p>
-          <span class="card-arrow">View Staples &rarr;</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- Promo Banner -->
-    <section class="container">
-      <div class="promo-banner">
-        <div class="promo-text">
-          <span class="pill cream">LIMITED-TIME OFFER</span>
-          <h3>Build Your Street Uniform — 15% Off Any 3+ Pieces</h3>
-          <p>Mix heavyweight round-neck tees with baggy denim or cargo shorts. Nationwide delivery across Accra, Kumasi, Takoradi &amp; Techiman.</p>
-        </div>
-        <a href="#catalog" class="btn btn-cream">CLAIM BUNDLE</a>
-      </div>
-    </section>
-
-    <!-- Main Product Catalogue -->
-    <section class="section container" id="catalog">
-      <div class="catalog-toolbar">
-        <div>
-          <span class="section-tag">STUDIO FLAT-LAY CATALOGUE</span>
-          <h2>Shop The Archive</h2>
-        </div>
-
-        <div class="filter-pills" role="tablist" aria-label="Product Category Filters">
-          <button class="filter-btn active" data-category="ALL">All Pieces</button>
-          <button class="filter-btn" data-category="Tops">Tops</button>
-          <button class="filter-btn" data-category="Bottoms">Bottoms</button>
-          <button class="filter-btn" data-category="New Arrivals">New Arrivals</button>
-          <button class="filter-btn" data-category="Best Sellers">Best Sellers</button>
-        </div>
-      </div>
-
-      <!-- Sub-category & Sort Controls -->
-      <div class="sub-toolbar">
-        <select id="subCategorySelect" aria-label="Filter by garment style">
-          <option value="ALL">All Garment Styles (Tops &amp; Bottoms)</option>
-          <optgroup label="Tops">
-            <option value="Boxy Graphic Tees">Boxy Graphic Round-Neck Tees</option>
-            <option value="Plain Heavyweight Tees">Plain Heavyweight Tees (240+ GSM)</option>
-            <option value="Thermal & Waffle Tees">Long-Sleeve Thermal &amp; Waffle-Knit Tees</option>
-            <option value="Hoodies">Oversized Hoodies &amp; Zip-Up Hoodies</option>
-            <option value="Crewnecks">Crewneck Sweatshirts</option>
-            <option value="Sports Jerseys">Oversized Sports Jerseys</option>
-            <option value="Flannels & Overshirts">Flannel Shirts &amp; Denim Overshirts</option>
-          </optgroup>
-          <optgroup label="Bottoms">
-            <option value="Baggy Wide-Leg Jeans">Baggy Wide-Leg Jeans</option>
-            <option value="Stacked Denim">Stacked Denim Jeans</option>
-            <option value="Cargo & Parachute Pants">Cargo Pants &amp; Parachute Pants</option>
-            <option value="Sweatpants & Joggers">Baggy Sweatpants &amp; Cuffed Joggers</option>
-            <option value="Baggy Jorts">Baggy Denim Shorts (Jorts)</option>
-            <option value="Cargo & Mesh Shorts">Cargo Shorts &amp; Athletic Mesh Shorts</option>
-          </optgroup>
-        </select>
-
-        <div class="sort-wrap">
-          <span id="resultCount" class="result-count">Showing 0 items</span>
-          <select id="sortSelect" aria-label="Sort products">
-            <option value="featured">Sort: Featured</option>
-            <option value="price-asc">Price: Low to High (GH₵)</option>
-            <option value="price-desc">Price: High to Low (GH₵)</option>
-            <option value="rating">Highest Rated</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Product Grid (100% Clothing Only, No Models) -->
-      <div class="product-grid" id="productGrid"></div>
-    </section>
-
-    
-    <section class="about-section" id="about">
-      <div class="container about-grid">
-        <div>
-          <span class="section-tag">OUR IDENTITY</span>
-          <h2>Crafted in Ghana for Global Streets.</h2>
-          <p>
+<script src="script.js"></script>
+</body>
+</html>
