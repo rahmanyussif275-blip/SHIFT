@@ -1,36 +1,29 @@
 /* Solid, organized liquid-glass controls in the bag drawer. */
-.cart-drawer .drawer-head{display:flex;align-items:center;justify-content:space-between}
-.cart-drawer .cart-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable;padding-bottom:16px}
+.cart-drawer{height:100vh;height:100dvh}
+.cart-drawer .drawer-head{display:flex;align-items:center;justify-content:space-between;flex:0 0 auto}
+.cart-drawer .cart-scroll{flex:1 1 auto;min-height:0;height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable;padding-bottom:16px}
 .cart-drawer .cart-items{flex:none;min-height:auto;overflow:visible;display:flex;flex-direction:column;gap:14px;padding:18px 22px 16px}
 .cart-drawer .cart-line{position:relative}
 .cart-drawer .cart-line .line-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:6px;align-items:center}
-.cart-drawer .cart-line .line-copy b{grid-column:1/-1;font-size:14px}
+.cart-drawer .cart-line .line-copy b{grid-column:1/-1;font-size:14px;padding-right:82px}
 .cart-drawer .cart-line .line-meta{grid-column:1/-1}
 .cart-drawer .cart-line .line-price{grid-column:1;grid-row:3}
 .cart-drawer .cart-line .quantity{grid-column:2;grid-row:3;display:flex;align-items:center;gap:8px}
-.cart-drawer .remove-line{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:32px;padding:0 12px;border-radius:10px;font-size:11px;font-weight:750;letter-spacing:.02em}
 .cart-drawer button{color:#202638;border:1px solid rgba(255,255,255,.92);background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(226,229,236,.82));box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(30,38,64,.08),0 4px 12px rgba(30,38,64,.12);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
 .cart-drawer button:hover{background:linear-gradient(145deg,#fff,rgba(235,237,243,.96));box-shadow:inset 0 1px 0 #fff,0 7px 18px rgba(30,38,64,.17);transform:translateY(-1px)}
 .cart-drawer button:active{transform:translateY(0) scale(.97);box-shadow:inset 0 2px 5px rgba(30,38,64,.14)}
 .cart-drawer button:focus-visible{outline:2px solid #a7855e;outline-offset:3px}
 .cart-drawer .quantity button,.cart-drawer .close-button{display:inline-grid;place-items:center;border-radius:999px;font-weight:700}
 .cart-drawer .quantity button{width:34px;height:34px;font-size:17px}
-.cart-drawer .remove-line{color:#744343;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(247,226,223,.9));border-color:rgba(255,255,255,.96);box-shadow:inset 0 1px 0 #fff,0 4px 12px rgba(80,40,40,.12)}
+.cart-drawer .remove-line{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:32px;padding:0 12px;border-radius:10px;font-size:11px;font-weight:750;letter-spacing:.02em;color:#744343;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(247,226,223,.9));border-color:rgba(255,255,255,.96);box-shadow:inset 0 1px 0 #fff,0 4px 12px rgba(80,40,40,.12)}
 .cart-drawer .remove-line:hover{background:linear-gradient(145deg,#fff,rgba(250,229,226,.98));box-shadow:inset 0 1px 0 #fff,0 7px 16px rgba(80,40,40,.17)}
 .cart-drawer .delivery-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 22px 16px;padding:16px;border:1px solid rgba(255,255,255,.78);border-radius:18px;background:rgba(255,255,255,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 8px 22px rgba(30,38,64,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint{grid-column:1/-1}
-.cart-drawer .delivery-form h3{margin:0 0 2px;font-size:15px}
-.cart-drawer .delivery-form label{font-size:11px;font-weight:750;color:#44434a}
-.cart-drawer .delivery-form label[for="deliveryAddress"],.cart-drawer .delivery-form label[for="deliveryNotes"],.cart-drawer .delivery-form textarea{grid-column:1/-1}
-.cart-drawer .delivery-form input,.cart-drawer .delivery-form textarea{width:100%;border:1px solid rgba(30,38,64,.15);border-radius:11px;background:rgba(255,255,255,.78);box-shadow:inset 0 1px 3px rgba(30,38,64,.05);color:#171717;font:500 13px/1.4 'DM Sans',Arial,sans-serif;outline:none}
-.cart-drawer .delivery-form input{height:42px;padding:0 12px}
-.cart-drawer .delivery-form textarea{resize:vertical;min-height:58px;padding:9px 12px}
-.cart-drawer .delivery-form input:focus,.cart-drawer .delivery-form textarea:focus{border-color:#65718f;box-shadow:0 0 0 3px rgba(101,113,143,.12)}
-.cart-drawer .delivery-form .optional{font-weight:500;color:#77766f}
-.cart-drawer .delivery-hint{margin:0;color:#77766f;font-size:10px;text-align:center}
-.cart-drawer .cart-foot{position:relative;z-index:2;flex:0 0 auto;padding:16px 24px max(18px,env(safe-area-inset-bottom));background:rgba(250,249,246,.9);border-top:1px solid rgba(255,255,255,.86);box-shadow:0 -8px 24px rgba(30,38,64,.1);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint{grid-column:1/-1}.cart-drawer .delivery-form h3{margin:0 0 2px;font-size:15px}.cart-drawer .delivery-form label{font-size:11px;font-weight:750;color:#44434a}.cart-drawer .delivery-form label[for="deliveryAddress"],.cart-drawer .delivery-form label[for="deliveryNotes"],.cart-drawer .delivery-form textarea{grid-column:1/-1}
+.cart-drawer .delivery-form input,.cart-drawer .delivery-form textarea{width:100%;border:1px solid rgba(30,38,64,.15);border-radius:11px;background:rgba(255,255,255,.78);box-shadow:inset 0 1px 3px rgba(30,38,64,.05);color:#171717;font:500 13px/1.4 'DM Sans',Arial,sans-serif;outline:none}.cart-drawer .delivery-form input{height:42px;padding:0 12px}.cart-drawer .delivery-form textarea{resize:vertical;min-height:58px;padding:9px 12px}.cart-drawer .delivery-form input:focus,.cart-drawer .delivery-form textarea:focus{border-color:#65718f;box-shadow:0 0 0 3px rgba(101,113,143,.12)}
+.cart-drawer .delivery-form .optional{font-weight:500;color:#77766f}.cart-drawer .delivery-hint{margin:0;color:#77766f;font-size:10px;text-align:center}
+.cart-drawer .cart-foot{position:relative;z-index:3;flex:0 0 auto;padding:16px 24px max(18px,env(safe-area-inset-bottom));background:rgba(250,249,246,.92);border-top:1px solid rgba(255,255,255,.86);box-shadow:0 -8px 24px rgba(30,38,64,.1);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
 .cart-drawer #orderEnquiry{width:100%;min-height:52px;padding:0 22px;border:1px solid rgba(255,255,255,.65);border-radius:999px;color:#fff;font-weight:800;letter-spacing:.08em;background:linear-gradient(135deg,#303b5d,#1e2640 58%,#141b30);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -2px 0 rgba(0,0,0,.18),0 9px 22px rgba(30,38,64,.28)}
 .cart-drawer #orderEnquiry:hover{background:linear-gradient(135deg,#414f76,#263252 58%,#1b243d);box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 12px 26px rgba(30,38,64,.32)}
 .cart-drawer #continueShopping,.cart-drawer .text-button{min-height:42px;padding:8px 18px;border-radius:999px;font-weight:700;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(232,233,238,.78))}
-@media(max-width:520px){.cart-drawer .cart-scroll{padding-bottom:10px}.cart-drawer .cart-items{padding-inline:14px}.cart-drawer .delivery-form{grid-template-columns:1fr;margin-inline:14px}.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint,.cart-drawer .delivery-form label,.cart-drawer .delivery-form textarea,.cart-drawer .delivery-form input{grid-column:1/-1}.cart-drawer .cart-line{grid-template-columns:74px minmax(0,1fr);gap:11px;padding-top:16px}.cart-drawer .cart-line>img{width:74px;height:92px}.cart-drawer .cart-foot{padding-inline:16px}}
+@media(max-width:520px){.cart-drawer .cart-items{padding-inline:14px}.cart-drawer .delivery-form{grid-template-columns:1fr;margin-inline:14px}.cart-drawer .delivery-form h3,.cart-drawer .delivery-form .delivery-hint,.cart-drawer .delivery-form label,.cart-drawer .delivery-form textarea,.cart-drawer .delivery-form input{grid-column:1/-1}.cart-drawer .cart-line{grid-template-columns:74px minmax(0,1fr);gap:11px;padding-top:16px}.cart-drawer .cart-line>img{width:74px;height:92px}.cart-drawer .cart-foot{padding-inline:16px}}
 @media(prefers-reduced-motion:reduce){.cart-drawer button{transition:none}}
