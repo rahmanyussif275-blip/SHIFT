@@ -1,0 +1,22 @@
+/* Finishing touches for the SHIFT.GH storefront */
+:root{--accent:#a7855e;--ink-soft:#34343a;--surface:#fff;--surface-warm:#f1efea}
+::selection{background:#d9c5a6;color:#1e2640}
+:focus-visible{outline:2px solid #a7855e!important;outline-offset:3px}
+.header{box-shadow:0 3px 14px rgba(31,35,44,.035)}
+.bag-button{padding:9px 0 9px 12px}.bag-button:hover{color:#8f704d}
+.hero-content{animation:rise-in .65s ease-out both}.hero-caption{padding:8px 11px;background:rgba(20,20,20,.25);backdrop-filter:blur(8px)}
+@keyframes rise-in{from{opacity:0;transform:translateY(calc(-46% + 15px))}to{opacity:1;transform:translateY(-46%)}}
+.section-top h2,.about h2{color:#1f2025}.shop-title .muted{max-width:430px;line-height:1.75}
+.tools select{cursor:pointer}.search:focus-within{background:#fff}
+.product-grid{align-items:start}.product-card{display:flex;flex-direction:column}.product-photo{flex:none}.product-photo:focus-visible{outline-offset:4px}.card-meta{min-height:20px}.product-name{flex:1;cursor:pointer}.card-bottom{margin-top:auto}
+.add-quick{min-height:29px;cursor:pointer}.add-quick:hover{color:#96734d}
+.heart[aria-pressed="true"]{color:#9e4f48}.heart[aria-pressed="true"]::first-letter{color:#9e4f48}
+.fit-photo{overflow:hidden}.fit-photo img{transition:opacity .2s,transform .5s}.fit-photo:hover img{transform:scale(1.015)}.fit-tabs button{min-width:76px}
+.about{position:relative}.about:after{content:"GH";position:absolute;right:var(--pad);bottom:14px;font:700 clamp(80px,15vw,190px)/.8 var(--display);letter-spacing:-.1em;color:rgba(30,38,64,.035);pointer-events:none}
+#reviewForm input:focus,#reviewForm select:focus{outline:2px solid #a7855e;outline-offset:1px}#reviewForm .button{cursor:pointer}
+.footer-main a{transition:color .15s}.footer-bottom{gap:15px}
+.cart-drawer{overscroll-behavior:contain}.cart-items{overscroll-behavior:contain}.quantity button:hover{border-color:var(--navy);color:var(--navy)}
+.product-dialog{border-radius:2px}.modal-info{display:flex;flex-direction:column;justify-content:center}.modal-image img{object-position:center}.modal-buy{margin-top:24px}
+.toast{max-width:calc(100vw - 32px);width:max-content;text-align:center;border-left:3px solid var(--cream)}
+@media(max-width:640px){.hero-content{animation:none}.hero-caption{right:var(--pad);bottom:18px}.collection-tile:after{border-color:rgba(255,255,255,.18)}.product-photo span{background:rgba(248,247,244,.96)}.about:after{right:20px;bottom:15px}.fit-photo img{transform:none!important}.modal-content{min-height:0}.modal-info{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.hero-content{animation:none!important}.fit-photo img{transition:none!important}}
