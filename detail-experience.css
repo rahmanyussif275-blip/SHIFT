@@ -1,43 +1,26 @@
-/* Product dialog typography and surface tuned to match SHIFT's paper-and-navy storefront. */
-.product-dialog{
-  color:#171717;
-  background:rgba(248,247,244,.94);
-  border:1px solid rgba(255,255,255,.92);
-  box-shadow:0 26px 90px rgba(18,23,37,.28),inset 0 1px 0 rgba(255,255,255,.95);
-  backdrop-filter:blur(22px) saturate(1.12);
-  -webkit-backdrop-filter:blur(22px) saturate(1.12);
-}
-.product-dialog .modal-content{background:linear-gradient(145deg,rgba(248,247,244,.94),rgba(243,241,235,.88))}
-.product-dialog .modal-info{font-family:'DM Sans',Arial,sans-serif;color:#171717}
-.product-dialog .modal-info h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(25px,3vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:600}
-.product-dialog .modal-info>p:not(.eyebrow),
-.product-dialog .modal-info small,
-.product-dialog .fit-preview-detail{font-family:'DM Sans',Arial,sans-serif;line-height:1.65}
-.product-dialog .option-label,
-.product-dialog .fit-preview-heading>span{font-family:'DM Sans',Arial,sans-serif;letter-spacing:.11em}
-.product-dialog .modal-price{font-family:'Space Grotesk',Arial,sans-serif;font-size:17px;font-weight:600}
-.product-dialog .modal-x{
-  top:14px;right:14px;
-  width:46px;height:46px;
-  display:grid;place-items:center;
-  border:1px solid rgba(30,38,64,.12);
-  border-radius:16px;
-  background:rgba(248,247,244,.88);
-  color:#1e2640;
-  box-shadow:0 5px 16px rgba(30,38,64,.12),inset 0 1px 0 rgba(255,255,255,.95);
-  font-size:29px;line-height:1;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
-}
-.product-dialog .modal-x:hover{transform:scale(1.04);background:#fff;box-shadow:0 8px 20px rgba(30,38,64,.16),inset 0 1px 0 #fff}
-.product-dialog .modal-x:active{transform:scale(.97)}
-.product-dialog .product-fit-preview{background:rgba(255,255,255,.56);border-color:rgba(30,38,64,.08)}
-.product-dialog .fit-preview-options button{background:rgba(248,247,244,.8);color:#1e2640}
-.product-dialog .modal-info .button-dark{font-family:'DM Sans',Arial,sans-serif;letter-spacing:.1em}
+/* Popup-only colour, size and quantity controls. */
+.product-dialog .modal-info .option-label:has(+ .swatches){font-size:0;letter-spacing:0;margin-top:18px}
+.product-dialog .modal-info .option-label:has(+ .swatches)::before{content:'AVAILABLE COLOURS';font:700 9px/1.4 'DM Sans',Arial,sans-serif;letter-spacing:.11em;color:#44434a}
+.product-dialog .modal-info .option-label:has(+ .swatches) b{font:500 10px/1.4 'DM Sans',Arial,sans-serif;letter-spacing:.04em;margin-left:8px;color:#77766f}
+.product-dialog .swatches{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:3px 4px 4px}
+.product-dialog .swatch{flex:0 0 30px;width:30px;height:30px;min-width:30px;min-height:30px;padding:0;border:2px solid rgba(255,255,255,.92);border-radius:50%;box-shadow:0 2px 8px rgba(30,38,64,.18),inset 0 1px 1px rgba(255,255,255,.4);cursor:pointer;transition:transform .18s,outline-color .18s,box-shadow .18s}
+.product-dialog .swatch:hover{transform:scale(1.08)}
+.product-dialog .swatch.selected{outline:2px solid var(--navy);outline-offset:3px;box-shadow:0 3px 12px rgba(30,38,64,.24),inset 0 1px 1px rgba(255,255,255,.5)}
+.product-dialog .size-options{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;width:100%}
+.product-dialog .size-options .size{width:100%;height:42px;min-width:0;padding:0 4px;display:grid;place-items:center;border:1px solid rgba(30,38,64,.13);border-radius:13px;background:rgba(255,255,255,.48);color:#1e2640;font:600 10px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 2px 8px rgba(30,38,64,.045);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .16s,background .16s,border-color .16s,box-shadow .16s}
+.product-dialog .size-options .size:hover{transform:translateY(-1px);border-color:rgba(30,38,64,.35);background:rgba(255,255,255,.76)}
+.product-dialog .size-options .size.selected{border-color:rgba(30,38,64,.7);background:rgba(30,38,64,.9);color:white;box-shadow:inset 0 1px 0 rgba(255,255,255,.23),0 4px 12px rgba(30,38,64,.18)}
+.product-dialog .modal-buy{align-items:flex-end;gap:12px}
+.product-dialog .modal-buy label{flex:0 0 102px;gap:7px;font:700 9px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.1em;color:#44434a}
+.product-dialog .modal-buy label::first-line{font-size:0}
+.product-dialog .modal-buy label::before{content:'QUANTITY';display:block;font:700 9px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.1em;color:#44434a}
+.product-dialog .modal-buy input{width:100%;height:46px;padding:0 12px;border:1px solid rgba(30,38,64,.14);border-radius:14px;background:rgba(255,255,255,.5);color:#171717;font:500 14px/1 'DM Sans',Arial,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 3px 10px rgba(30,38,64,.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.product-dialog .modal-buy input:focus{outline:2px solid rgba(30,38,64,.42);outline-offset:2px}
+.product-dialog .modal-buy .button{min-height:46px;border-radius:999px}
 @media(max-width:720px){
- .product-dialog{background:rgba(248,247,244,.97)}
- .product-dialog .modal-content{background:linear-gradient(160deg,rgba(248,247,244,.98),rgba(243,241,235,.94))}
- .product-dialog .modal-x{top:12px;right:12px;width:44px;height:44px;border-radius:15px}
- .product-dialog .modal-info h2{font-size:26px}
+ .product-dialog .size-options{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+ .product-dialog .size-options .size{height:40px;border-radius:11px}
+ .product-dialog .modal-buy{gap:9px}
+ .product-dialog .modal-buy label{flex-basis:88px}
 }
+@media(max-width:360px){.product-dialog .size-options{gap:4px}.product-dialog .size-options .size{font-size:9px}}
