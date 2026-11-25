@@ -1,172 +1,169 @@
 
+"use strict";
+
+/* ==========================================
+   SHIFT — COMPLETE STORE FRONTEND
+   20 TOPS + 20 BOTTOMS
+   ========================================== */
+
 const products = [
-  {
-    id: 1, name: "Vintage Boxy Graphic Tee", category: "Tops",
-    price: 65, rating: 4.8, reviews: 24,
-    description: "Relaxed boxy silhouette with vintage-inspired graphic styling. Designed for everyday streetwear.",
-    colors: ["Black", "White", "Cream", "Navy"],
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900",
-    extra: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900"
-  },
-  {
-    id: 2, name: "Heavyweight Essential Tee", category: "Tops",
-    price: 55, rating: 4.9, reviews: 31,
-    description: "Minimal heavyweight round-neck essential. Inspired by premium 240+ GSM streetwear.",
-    colors: ["Black", "White", "Charcoal", "Cream", "Olive"],
-    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900",
-    extra: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900"
-  },
-  {
-    id: 3, name: "Thermal Waffle Long Sleeve", category: "Tops",
-    price: 70, rating: 4.7, reviews: 12,
-    description: "Long-sleeve waffle-knit inspired top with a comfortable textured finish.",
-    colors: ["Black", "White", "Cream", "Olive"],
-    image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900",
-    extra: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900"
-  },
-  {
-    id: 4, name: "Oversized Street Hoodie", category: "Tops",
-    price: 120, rating: 4.9, reviews: 45,
-    description: "Oversized hoodie with a relaxed streetwear silhouette and comfortable construction.",
-    colors: ["Black", "Grey", "Cream", "Navy"],
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900",
-    extra: "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=900"
-  },
-  {
-    id: 5, name: "Premium Zip-Up Hoodie", category: "Tops",
-    price: 130, rating: 4.8, reviews: 19,
-    description: "Versatile zip-up hoodie with a relaxed everyday fit.",
-    colors: ["Black", "Grey", "Cream"],
-    image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=900",
-    extra: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900"
-  },
-  {
-    id: 6, name: "Classic Crewneck Sweatshirt", category: "Tops",
-    price: 95, rating: 4.6, reviews: 17,
-    description: "Clean crewneck sweatshirt with a relaxed silhouette.",
-    colors: ["Black", "White", "Grey", "Olive"],
-    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900",
-    extra: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900"
-  },
-  {
-    id: 7, name: "Retro Oversized Sports Jersey", category: "Tops",
-    price: 90, rating: 4.9, reviews: 37,
-    description: "Oversized sports-inspired jersey drawing from retro football, basketball and racing culture.",
-    colors: ["Black", "White", "Red", "Blue"],
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900",
-    extra: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900"
-  },
-  {
-    id: 8, name: "Baggy Wide-Leg Jeans", category: "Bottoms",
-    price: 150, rating: 4.9, reviews: 29,
-    description: "Relaxed wide-leg denim with a contemporary oversized silhouette.",
-    colors: ["Light Wash", "Faded Black", "Indigo", "Distressed"],
-    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900",
-    extra: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900"
-  },
-  {
-    id: 9, name: "Stacked Denim Jeans", category: "Bottoms",
-    price: 165, rating: 4.7, reviews: 16,
-    description: "Stacked denim design with a longer streetwear-inspired leg profile.",
-    colors: ["Black", "Blue", "Indigo"],
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900",
-    extra: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900"
-  },
-  {
-    id: 10, name: "Utility Cargo Pants", category: "Bottoms",
-    price: 135, rating: 4.8, reviews: 22,
-    description: "Functional cargo-inspired trousers with relaxed proportions.",
-    colors: ["Black", "Olive", "Khaki", "Grey"],
-    image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?w=900",
-    extra: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900"
-  },
-  {
-    id: 11, name: "Baggy Sweatpants & Joggers", category: "Bottoms",
-    price: 100, rating: 4.8, reviews: 26,
-    description: "Comfort-focused relaxed sweatpants with an easy everyday silhouette.",
-    colors: ["Black", "Grey", "Cream", "Navy"],
-    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=900",
-    extra: "https://images.unsplash.com/photo-1506629905607-d9c36f1a7c20?w=900"
-  },
-  {
-    id: 12, name: "Baggy Denim Jorts", category: "Bottoms",
-    price: 85, rating: 4.7, reviews: 14,
-    description: "Relaxed denim shorts with a baggy streetwear-inspired cut.",
-    colors: ["Blue", "Black", "Light Wash"],
-    image: "https://images.unsplash.com/photo-1511196044526-5cb3bcb7071b?w=900",
-    extra: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900"
-  },
-  {
-    id: 13, name: "Cargo & Athletic Mesh Shorts", category: "Bottoms",
-    price: 75, rating: 4.8, reviews: 21,
-    description: "Relaxed utility and athletic-inspired shorts for everyday comfort.",
-    colors: ["Black", "Olive", "Grey", "Navy"],
-    image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=900",
-    extra: "https://images.unsplash.com/photo-1506629905607-d9c36f1a7c20?w=900"
-  }
-];
+  // TOPS — 20 PRODUCTS
+  {id:1,name:"Boxy Vintage Graphic Tee",slug:"boxy-vintage-tee",category:"Tops",price:65,colors:["Black","White","Cream","Navy"]},
+  {id:2,name:"Heavyweight Plain Black Tee",slug:"heavyweight-black-tee",category:"Tops",price:60,colors:["Black"]},
+  {id:3,name:"Heavyweight White Tee",slug:"heavyweight-white-tee",category:"Tops",price:60,colors:["White"]},
+  {id:4,name:"Heavyweight Charcoal Tee",slug:"heavyweight-charcoal-tee",category:"Tops",price:60,colors:["Charcoal"]},
+  {id:5,name:"Heavyweight Cream Tee",slug:"heavyweight-cream-tee",category:"Tops",price:60,colors:["Cream"]},
+  {id:6,name:"Heavyweight Olive Tee",slug:"heavyweight-olive-tee",category:"Tops",price:60,colors:["Olive"]},
+  {id:7,name:"Puff Print Street Tee",slug:"puff-print-tee",category:"Tops",price:75,colors:["Black","White","Cream"]},
+  {id:8,name:"Vintage Washed Graphic Tee",slug:"vintage-wash-tee",category:"Tops",price:75,colors:["Black","Grey","Blue"]},
+  {id:9,name:"Minimal Logo Oversized Tee",slug:"minimal-logo-tee",category:"Tops",price:65,colors:["Black","White","Navy"]},
+  {id:10,name:"Abstract Graphic Tee",slug:"abstract-graphic-tee",category:"Tops",price:70,colors:["Black","White","Cream"]},
+  {id:11,name:"Waffle Knit Long Sleeve",slug:"waffle-knit-tee",category:"Tops",price:80,colors:["Black","Cream","Olive"]},
+  {id:12,name:"Thermal Long Sleeve Tee",slug:"thermal-long-sleeve",category:"Tops",price:85,colors:["Black","White","Grey"]},
+  {id:13,name:"Oversized Black Hoodie",slug:"black-hoodie",category:"Tops",price:120,colors:["Black"]},
+  {id:14,name:"Oversized Cream Hoodie",slug:"cream-hoodie",category:"Tops",price:120,colors:["Cream"]},
+  {id:15,name:"Oversized Grey Hoodie",slug:"grey-hoodie",category:"Tops",price:120,colors:["Grey"]},
+  {id:16,name:"Premium Zip Up Hoodie",slug:"zip-up-hoodie",category:"Tops",price:135,colors:["Black","Grey","Cream"]},
+  {id:17,name:"Classic Crewneck Sweatshirt",slug:"crewneck-sweatshirt",category:"Tops",price:100,colors:["Black","White","Grey"]},
+  {id:18,name:"Retro Football Jersey",slug:"football-jersey",category:"Tops",price:95,colors:["Black","White","Blue"]},
+  {id:19,name:"Retro Basketball Jersey",slug:"basketball-jersey",category:"Tops",price:95,colors:["Black","White","Red"]},
+  {id:20,name:"Vintage Racing Jersey",slug:"racing-jersey",category:"Tops",price:105,colors:["Black","White","Red"]},
+
+  // BOTTOMS — 20 PRODUCTS
+  {id:21,name:"Baggy Light Wash Jeans",slug:"light-wash-jeans",category:"Bottoms",price:150,colors:["Light Wash"]},
+  {id:22,name:"Baggy Faded Black Jeans",slug:"faded-black-jeans",category:"Bottoms",price:150,colors:["Faded Black"]},
+  {id:23,name:"Raw Indigo Wide Leg Jeans",slug:"raw-indigo-jeans",category:"Bottoms",price:160,colors:["Indigo"]},
+  {id:24,name:"Distressed Baggy Jeans",slug:"distressed-jeans",category:"Bottoms",price:165,colors:["Blue","Black"]},
+  {id:25,name:"Stacked Black Denim Jeans",slug:"stacked-black-jeans",category:"Bottoms",price:170,colors:["Black"]},
+  {id:26,name:"Stacked Blue Denim Jeans",slug:"stacked-blue-jeans",category:"Bottoms",price:170,colors:["Blue"]},
+  {id:27,name:"Classic Utility Cargo Pants",slug:"utility-cargo-pants",category:"Bottoms",price:140,colors:["Black","Olive","Khaki"]},
+  {id:28,name:"Olive Cargo Pants",slug:"olive-cargo-pants",category:"Bottoms",price:140,colors:["Olive"]},
+  {id:29,name:"Black Parachute Pants",slug:"black-parachute-pants",category:"Bottoms",price:145,colors:["Black"]},
+  {id:30,name:"Grey Parachute Pants",slug:"grey-parachute-pants",category:"Bottoms",price:145,colors:["Grey"]},
+  {id:31,name:"Baggy Black Sweatpants",slug:"black-sweatpants",category:"Bottoms",price:110,colors:["Black"]},
+  {id:32,name:"Baggy Grey Sweatpants",slug:"grey-sweatpants",category:"Bottoms",price:110,colors:["Grey"]},
+  {id:33,name:"Cream Baggy Sweatpants",slug:"cream-sweatpants",category:"Bottoms",price:110,colors:["Cream"]},
+  {id:34,name:"Cuffed Black Joggers",slug:"black-joggers",category:"Bottoms",price:100,colors:["Black"]},
+  {id:35,name:"Relaxed Grey Joggers",slug:"grey-joggers",category:"Bottoms",price:100,colors:["Grey"]},
+  {id:36,name:"Baggy Blue Denim Jorts",slug:"blue-jorts",category:"Bottoms",price:90,colors:["Blue"]},
+  {id:37,name:"Faded Black Denim Jorts",slug:"black-jorts",category:"Bottoms",price:90,colors:["Black"]},
+  {id:38,name:"Utility Cargo Shorts",slug:"cargo-shorts",category:"Bottoms",price:85,colors:["Black","Olive","Khaki"]},
+  {id:39,name:"Black Athletic Mesh Shorts",slug:"mesh-shorts",category:"Bottoms",price:75,colors:["Black"]},
+  {id:40,name:"Oversized Sports Shorts",slug:"sports-shorts",category:"Bottoms",price:80,colors:["Black","Navy","Grey"]}
+].map(product => ({
+  ...product,
+  image:`assets/products/${product.slug}.jpg`,
+  description:`Discover the ${product.name} from SHIFT. A streetwear essential designed for contemporary style and everyday comfort.`,
+  rating:0,
+  reviews:0
+}));
+
+/* ==========================================
+   COLOUR DEFINITIONS
+   ========================================== */
 
 const colorHex = {
-  "Black": "#141414",
-  "White": "#ffffff",
-  "Cream": "#f6e8d0",
-  "Navy": "#1e2640",
-  "Charcoal": "#424242",
-  "Olive": "#65734c",
-  "Grey": "#929292",
-  "Red": "#b52b32",
-  "Blue": "#355c91",
-  "Light Wash": "#9bb8ce",
-  "Faded Black": "#393939",
-  "Indigo": "#303c60",
-  "Distressed": "#8293a0",
-  "Khaki": "#b5a47b"
+  Black:"#141414",
+  White:"#ffffff",
+  Cream:"#f6e8d0",
+  Navy:"#1e2640",
+  Charcoal:"#424242",
+  Olive:"#65734c",
+  Grey:"#929292",
+  Red:"#b52b32",
+  Blue:"#355c91",
+  "Light Wash":"#a5c3d9",
+  "Faded Black":"#454545",
+  Indigo:"#303c60",
+  Khaki:"#b5a47b"
 };
 
-let cart = JSON.parse(localStorage.getItem("shift-cart") || "[]");
+/* ==========================================
+   STATE
+   ========================================== */
+
+let cart = loadStorage("shift-cart",[]);
 let currentProduct = null;
 let selectedColor = "";
 let selectedSize = "M";
 let selectedFit = "all";
-let currentImage = "";
+let activeFilter = "All";
+let quantity = 1;
 
-function saveCart() {
-  localStorage.setItem("shift-cart", JSON.stringify(cart));
-  document.getElementById("cart-count").textContent =
-    cart.reduce((sum, item) => sum + item.quantity, 0);
+const modelPhotos = {
+  slim:"assets/models/slim.jpg",
+  normal:"assets/models/normal.jpg",
+  fat:"assets/models/plus-size.jpg"
+};
+
+function loadStorage(key,fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch {
+    return fallback;
+  }
 }
 
-function renderProducts(category = "All") {
-  const grid = document.getElementById("product-grid");
+function saveStorage(key,value) {
+  localStorage.setItem(key,JSON.stringify(value));
+}
 
-  const filtered = products.filter(p =>
-    category === "All" ||
-    (category === "Tops" && p.category === "Tops") ||
-    (category === "Bottoms" && p.category === "Bottoms")
+function money(value) {
+  return `GH₵ ${Number(value).toFixed(2)}`;
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#39;"
+  })[char]);
+}
+
+/* ==========================================
+   PRODUCT CATALOGUE
+   ========================================== */
+
+function renderProducts(category="All") {
+  activeFilter=category;
+
+  const grid=document.getElementById("product-grid");
+  if(!grid) return;
+
+  const filtered=products.filter(p=>
+    category==="All" || p.category===category
   );
 
-  grid.innerHTML = filtered.map(p => `
+  grid.innerHTML=filtered.map(p=>`
     <article class="product-card" onclick="openProduct(${p.id})">
       <div class="product-photo">
-        <img src="${p.image}" alt="${p.name} product photograph"
-             loading="lazy">
+        <img
+          src="${p.image}"
+          alt="${escapeHTML(p.name)} — clothing only"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='assets/products/product-placeholder.jpg';"
+        >
         <span class="product-category">${p.category}</span>
       </div>
       <div class="product-info">
-        <h3>${p.name}</h3>
-        <p>★ ${p.rating} · ${p.reviews} reviews</p>
-        <p class="product-price">GH₵ ${p.price.toFixed(2)}</p>
+        <h3>${escapeHTML(p.name)}</h3>
+        <p>${p.rating ? `★ ${p.rating} · ${p.reviews} reviews` : "New arrival"}</p>
+        <p class="product-price">${money(p.price)}</p>
       </div>
     </article>
   `).join("");
 
-  document.getElementById("product-total").textContent =
-    `${filtered.length} pieces`;
+  const total=document.getElementById("product-total");
+  if(total) total.textContent=`${filtered.length} products`;
 }
 
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach(b =>
+/* ==========================================
+   CATEGORY FILTERS
+   ========================================== */
+
+document.querySelectorAll(".filter").forEach(button=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(b=>
       b.classList.remove("active")
     );
     button.classList.add("active");
@@ -174,407 +171,419 @@ document.querySelectorAll(".filter").forEach(button => {
   });
 });
 
+/* ==========================================
+   PRODUCT DETAILS
+   ========================================== */
+
 function openProduct(id) {
-  currentProduct = products.find(p => p.id === id);
-  selectedColor = currentProduct.colors[0];
-  selectedSize = "M";
-  selectedFit = "all";
-  currentImage = currentProduct.image;
+  currentProduct=products.find(p=>p.id===id);
+  if(!currentProduct) return;
+
+  selectedColor=currentProduct.colors[0];
+  selectedSize="M";
+  selectedFit="all";
+  quantity=1;
 
   document.getElementById("product-page").classList.add("show");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 
   renderProductDetail();
-  window.scrollTo(0, 0);
+  document.getElementById("product-page").scrollTop=0;
 }
 
 function closeProduct() {
   document.getElementById("product-page").classList.remove("show");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
 function renderProductDetail() {
-  const p = currentProduct;
+  const p=currentProduct;
+  const detail=document.getElementById("product-detail");
 
-  const detail = document.getElementById("product-detail");
-
-  detail.innerHTML = `
+  detail.innerHTML=`
     <div class="detail-layout">
       <div>
         <div class="detail-main-image">
-          <img id="main-product-image" src="${currentImage}"
-               alt="${p.name}">
-        </div>
-
-        <div class="detail-thumbnails">
-          <img class="selected" src="${p.image}"
-               onclick="changeImage('${p.image}',this)">
-          <img src="${p.extra}"
-               onclick="changeImage('${p.extra}',this)">
+          <img id="main-product-image"
+            src="${p.image}"
+            alt="${escapeHTML(p.name)}"
+            onerror="this.onerror=null;this.src='assets/products/product-placeholder.jpg';">
         </div>
       </div>
 
       <div class="detail-info">
         <p class="eyebrow">${p.category} / SHIFT COLLECTION</p>
-        <h1>${p.name}</h1>
-        <p>★ ${p.rating} (${p.reviews} ratings)</p>
-        <div class="detail-price">GH₵ ${p.price.toFixed(2)}</div>
-        <p class="detail-description">${p.description}</p>
+        <h1>${escapeHTML(p.name)}</h1>
+        <p>${p.rating ? `★ ${p.rating}` : "New arrival"}</p>
+        <div class="detail-price">${money(p.price)}</div>
+        <p class="detail-description">${escapeHTML(p.description)}</p>
 
-        <div class="option-label">SELECT COLOUR: <span id="color-name">${selectedColor}</span></div>
+        <p class="option-label">COLOUR: <span id="color-name">${selectedColor}</span></p>
         <div class="color-options">
-          ${p.colors.map(c => `
-            <button class="color-option ${c === selectedColor ? "selected" : ""}"
-              style="background:${colorHex[c] || "#888"}"
-              title="${c}" onclick="selectColor('${c}')"></button>
+          ${p.colors.map(c=>`
+            <button class="color-option ${c===selectedColor?"selected":""}"
+              style="background:${colorHex[c]||"#888"}"
+              title="${c}" aria-label="${c}"
+              onclick="selectColor('${c}')"></button>
           `).join("")}
         </div>
 
-        <p class="option-label">SELECT SIZE</p>
+        <p class="option-label">SIZE</p>
         <div class="size-options">
-          ${["S","M","L","XL","XXL"].map(s => `
-            <button class="size-option ${s === selectedSize ? "selected" : ""}"
+          ${["S","M","L","XL","XXL"].map(s=>`
+            <button class="size-option ${s==="M"?"selected":""}"
               onclick="selectSize('${s}')">${s}</button>
           `).join("")}
         </div>
 
         <p class="option-label">QUANTITY</p>
-        <input id="quantity" class="quantity-input" type="number"
-          value="1" min="1" max="20">
+        <input id="quantity" class="quantity-input"
+          type="number" min="1" max="20" value="1">
 
         <div class="detail-actions">
           <button class="primary-button" onclick="addToCart()">
             ADD TO BAG
           </button>
         </div>
-        <p class="small-note">Prices are displayed in Ghana cedis.</p>
       </div>
     </div>
 
     <section class="fit-section">
-      <p class="eyebrow">FIND YOUR PERFECT FIT</p>
-      <h2>See it. Imagine it. Wear it.</h2>
-      <p>Explore how this style looks across different body types.</p>
+      <p class="eyebrow">SHIFT FIT EXPERIENCE</p>
+      <h2>Find your perfect fit.</h2>
+      <p>Explore three different body types.</p>
 
       <div class="fit-controls">
-        <button class="active" onclick="selectFit('all',this)">SWIPE ALL</button>
+        <button class="active" onclick="selectFit('all',this)">VIEW ALL</button>
         <button onclick="selectFit('slim',this)">SLIM</button>
         <button onclick="selectFit('normal',this)">NORMAL</button>
         <button onclick="selectFit('fat',this)">PLUS SIZE</button>
       </div>
 
-      <div class="model-gallery" id="model-gallery">
+      <div id="model-gallery" class="model-gallery">
         ${modelCards()}
       </div>
+
       <p class="fit-note">
-        Model previews are illustrative fit references, not a live virtual
-        try-on. Upload approved photographs of models wearing each actual
-        SHIFT garment to make these previews product-specific.
+        Illustrative body previews. Actual garment-specific fit
+        photography must be uploaded for accurate virtual fitting.
       </p>
     </section>
 
     <section class="review-section">
-      <p class="eyebrow">CUSTOMER EXPERIENCE</p>
-      <h2>Customer reviews</h2>
-      <div class="rating-summary" id="rating-summary"></div>
+      <p class="eyebrow">CUSTOMER FEEDBACK</p>
+      <h2>Reviews & ratings</h2>
+      <div id="rating-summary"></div>
       <div id="review-list"></div>
 
-      <h3 style="margin-top:30px">Write a review</h3>
+      <h3>Write a review</h3>
       <form class="review-form" onsubmit="submitReview(event)">
         <input id="review-name" placeholder="Your name" required>
-        <select id="review-rating" required>
-          <option value="5">★★★★★ - Excellent</option>
-          <option value="4">★★★★ - Very good</option>
-          <option value="3">★★★ - Good</option>
-          <option value="2">★★ - Fair</option>
-          <option value="1">★ - Poor</option>
+        <select id="review-rating">
+          <option value="5">★★★★★ Excellent</option>
+          <option value="4">★★★★ Very good</option>
+          <option value="3">★★★ Good</option>
+          <option value="2">★★ Fair</option>
+          <option value="1">★ Poor</option>
         </select>
-        <textarea id="review-text" placeholder="Share your experience..."
+        <textarea id="review-text" placeholder="Your experience..."
           required></textarea>
         <button class="primary-button" type="submit">SUBMIT REVIEW</button>
       </form>
-      <p class="small-note">
-        Demo reviews are stored in this browser. They are not verified
-        purchases and are not shared between customers.
-      </p>
+      <p class="small-note">Demo reviews are saved locally in this browser.</p>
     </section>
   `;
 
   renderReviews();
 }
 
-function changeImage(url, element) {
-  currentImage = url;
-  document.getElementById("main-product-image").src = url;
-
-  document.querySelectorAll(".detail-thumbnails img").forEach(img =>
-    img.classList.remove("selected")
-  );
-
-  element.classList.add("selected");
-}
+/* ==========================================
+   COLOUR SELECTION
+   ========================================== */
 
 function selectColor(color) {
-  selectedColor = color;
+  if(!currentProduct.colors.includes(color)) return;
 
-  document.querySelectorAll(".color-option").forEach(btn => {
-    btn.classList.toggle("selected", btn.title === color);
+  selectedColor=color;
+
+  document.querySelectorAll(".color-option").forEach(btn=>{
+    btn.classList.toggle("selected",btn.title===color);
   });
 
-  document.getElementById("color-name").textContent = color;
+  document.getElementById("color-name").textContent=color;
 
-  // Approximate colour preview. For accurate colour variants,
-  // upload a separate photograph for every product colour.
-  const image = document.getElementById("main-product-image");
-  image.style.filter = getColorFilter(color);
-}
+  // Accurate colour images can be stored separately.
+  // Example: assets/products/black-hoodie-black.jpg
+  const variantImage=
+    `assets/products/${currentProduct.slug}-${color.toLowerCase().replace(/\s+/g,"-")}.jpg`;
 
-function getColorFilter(color) {
-  const filters = {
-    Black: "brightness(.55) saturate(.8)",
-    White: "brightness(1.25) saturate(.2)",
-    Cream: "sepia(.3) brightness(1.08)",
-    Navy: "sepia(.3) hue-rotate(175deg) saturate(1.5)",
-    Olive: "sepia(.5) hue-rotate(25deg) saturate(1.2)",
-    Grey: "grayscale(.8)",
-    Charcoal: "grayscale(.8) brightness(.7)",
-    Red: "sepia(.5) saturate(3) hue-rotate(310deg)",
-    Blue: "sepia(.3) saturate(2) hue-rotate(175deg)",
-    "Light Wash": "grayscale(.3) brightness(1.15)",
-    "Faded Black": "grayscale(.7) brightness(.65)",
-    Indigo: "sepia(.4) hue-rotate(175deg)",
-    Distressed: "grayscale(.4) brightness(1.1)",
-    Khaki: "sepia(.5) saturate(.8)",
-    "Faded Black": "grayscale(.7) brightness(.65)"
+  const image=document.getElementById("main-product-image");
+
+  image.onerror=()=>{
+    image.onerror=null;
+    image.src=currentProduct.image;
   };
 
-  return filters[color] || "none";
+  image.src=variantImage;
+  image.style.filter="none";
 }
 
-function selectSize(size) {
-  selectedSize = size;
+/* ==========================================
+   SIZE SELECTION
+   ========================================== */
 
-  document.querySelectorAll(".size-option").forEach(btn => {
-    btn.classList.toggle("selected", btn.textContent === size);
+function selectSize(size) {
+  selectedSize=size;
+
+  document.querySelectorAll(".size-option").forEach(btn=>{
+    btn.classList.toggle("selected",btn.textContent===size);
   });
 }
 
-// Replace these example portrait URLs with three approved
-// African male model photographs for each garment.
-const modelPhotos = {
-  slim: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
-  normal: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg",
-  fat: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-};
+/* ==========================================
+   BODY FIT PREVIEW
+   ========================================== */
 
 function modelCards() {
-  const models = [
-    { type: "slim", label: "SLIM FIT" },
-    { type: "normal", label: "REGULAR BUILD" },
-    { type: "fat", label: "PLUS SIZE" }
+  const models=[
+    {type:"slim",label:"SLIM BUILD"},
+    {type:"normal",label:"NORMAL BUILD"},
+    {type:"fat",label:"PLUS SIZE"}
   ];
 
   return models
-    .filter(m => selectedFit === "all" || selectedFit === m.type)
-    .map(m => `
+    .filter(m=>selectedFit==="all"||selectedFit===m.type)
+    .map(m=>`
       <article class="model-card">
-        <img src="${modelPhotos[m.type]}" alt="${m.label} model preview"
-             loading="lazy">
+        <img src="${modelPhotos[m.type]}"
+          alt="${m.label} African male model wearing a SHIFT outfit"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='assets/models/model-placeholder.jpg';">
         <h3>${m.label}</h3>
       </article>
     `).join("");
 }
 
-function selectFit(fit, button) {
-  selectedFit = fit;
+function selectFit(fit,button) {
+  selectedFit=fit;
 
-  document.querySelectorAll(".fit-controls button").forEach(btn =>
-    btn.classList.remove("active")
+  document.querySelectorAll(".fit-controls button").forEach(b=>
+    b.classList.remove("active")
   );
 
   button.classList.add("active");
 
-  const gallery = document.getElementById("model-gallery");
-  gallery.classList.toggle("single", fit !== "all");
-  gallery.innerHTML = modelCards();
+  const gallery=document.getElementById("model-gallery");
+
+  gallery.classList.toggle("single",fit!=="all");
+  gallery.innerHTML=modelCards();
 }
 
-// REVIEWS
+/* ==========================================
+   CUSTOMER REVIEWS
+   ========================================== */
 
 function getReviews() {
-  return JSON.parse(
-    localStorage.getItem("shift-reviews-" + currentProduct.id) || "[]"
-  );
+  return loadStorage(`shift-reviews-${currentProduct.id}`,[]);
 }
 
 function renderReviews() {
-  const reviews = getReviews();
-  const summary = document.getElementById("rating-summary");
-  const list = document.getElementById("review-list");
+  const reviews=getReviews();
 
-  const average = reviews.length
-    ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
-    : currentProduct.rating;
+  const average=reviews.length
+    ?reviews.reduce((sum,r)=>sum+r.rating,0)/reviews.length
+    :0;
 
-  summary.innerHTML =
-    `★ ${average.toFixed(1)} / 5 <span style="font-size:13px;color:#888">(${reviews.length} customer-submitted reviews in this browser)</span>`;
+  document.getElementById("rating-summary").innerHTML=`
+    <div class="rating-summary">
+      ${reviews.length?`★ ${average.toFixed(1)} / 5`:"No customer ratings yet"}
+      <span>(${reviews.length} reviews)</span>
+    </div>
+  `;
 
-  list.innerHTML = reviews.length
-    ? reviews.map(r => `
+  document.getElementById("review-list").innerHTML=
+    reviews.length
+    ?reviews.map(r=>`
       <article class="review-item">
         <h4>${escapeHTML(r.name)} · ${"★".repeat(r.rating)}</h4>
         <p>${escapeHTML(r.text)}</p>
       </article>
     `).join("")
-    : "<p>No customer-submitted reviews yet. Be the first to review!</p>";
+    :"<p>Be the first to review this product.</p>";
+
+  // Update the catalogue rating for this session.
+  currentProduct.rating=average;
+  currentProduct.reviews=reviews.length;
 }
 
 function submitReview(event) {
   event.preventDefault();
 
-  const name = document.getElementById("review-name").value.trim();
-  const rating = Number(document.getElementById("review-rating").value);
-  const review = document.getElementById("review-text").value.trim();
+  const name=document.getElementById("review-name").value.trim();
+  const rating=Number(document.getElementById("review-rating").value);
+  const text=document.getElementById("review-text").value.trim();
 
-  if (!name || !review || rating < 1 || rating > 5) return;
+  if(!name||!text||rating<1||rating>5) return;
 
-  const reviews = getReviews();
+  const reviews=getReviews();
 
   reviews.unshift({
     name,
     rating,
-    text: review
+    text,
+    date:new Date().toISOString()
   });
 
-  localStorage.setItem(
-    "shift-reviews-" + currentProduct.id,
-    JSON.stringify(reviews)
-  );
+  saveStorage(`shift-reviews-${currentProduct.id}`,reviews);
 
   event.target.reset();
   renderReviews();
-  alert("Your review has been added to this browser!");
+  alert("Thank you for reviewing SHIFT!");
 }
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
+/* ==========================================
+   SHOPPING CART
+   ========================================== */
 
-// SHOPPING BAG
+function saveCart() {
+  saveStorage("shift-cart",cart);
+
+  const count=cart.reduce((sum,item)=>sum+item.quantity,0);
+  const counter=document.getElementById("cart-count");
+
+  if(counter) counter.textContent=count;
+}
 
 function addToCart() {
-  const quantity = Math.max(
-    1,
-    Math.min(20, parseInt(document.getElementById("quantity").value) || 1)
+  if(!currentProduct) return;
+
+  const input=document.getElementById("quantity");
+
+  quantity=Math.max(1,Math.min(20,parseInt(input.value)||1));
+
+  const existing=cart.find(item=>
+    item.id===currentProduct.id &&
+    item.color===selectedColor &&
+    item.size===selectedSize
   );
 
-  const existing = cart.find(item =>
-    item.id === currentProduct.id &&
-    item.color === selectedColor &&
-    item.size === selectedSize
-  );
-
-  if (existing) {
-    existing.quantity += quantity;
+  if(existing) {
+    existing.quantity+=quantity;
   } else {
     cart.push({
-      id: currentProduct.id,
-      name: currentProduct.name,
-      price: currentProduct.price,
-      image: currentProduct.image,
-      color: selectedColor,
-      size: selectedSize,
+      id:currentProduct.id,
+      name:currentProduct.name,
+      image:currentProduct.image,
+      price:currentProduct.price,
+      color:selectedColor,
+      size:selectedSize,
       quantity
     });
   }
 
   saveCart();
-  alert("Added to your SHIFT shopping bag!");
+  alert("Successfully added to your SHIFT bag!");
 }
 
 function openCart() {
   closeProduct();
 
   document.getElementById("cart-page").classList.add("show");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
+
   renderCart();
 }
 
 function closeCart() {
   document.getElementById("cart-page").classList.remove("show");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
 function renderCart() {
-  const container = document.getElementById("cart-items");
+  const container=document.getElementById("cart-items");
 
-  if (!cart.length) {
-    container.innerHTML = "<p>Your shopping bag is empty.</p>";
+  if(!cart.length) {
+    container.innerHTML="<p>Your SHIFT bag is empty.</p>";
   } else {
-    container.innerHTML = cart.map((item, index) => `
+    container.innerHTML=cart.map((item,index)=>`
       <div class="cart-row">
-        <img src="${item.image}" alt="${escapeHTML(item.name)}">
+        <img src="${item.image}"
+          alt="${escapeHTML(item.name)}"
+          onerror="this.onerror=null;this.src='assets/products/product-placeholder.jpg';">
+
         <div style="flex:1">
           <h4>${escapeHTML(item.name)}</h4>
-          <p>${escapeHTML(item.color)} / ${escapeHTML(item.size)}</p>
+          <p>${escapeHTML(item.color)} / Size ${escapeHTML(item.size)}</p>
           <p>Quantity: ${item.quantity}</p>
-          <strong>GH₵ ${(item.price * item.quantity).toFixed(2)}</strong>
+          <strong>${money(item.price*item.quantity)}</strong>
         </div>
+
         <button onclick="removeCartItem(${index})">REMOVE</button>
       </div>
     `).join("");
   }
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity, 0
+  const total=cart.reduce(
+    (sum,item)=>sum+item.price*item.quantity,0
   );
 
-  document.getElementById("cart-total").textContent = total.toFixed(2);
+  document.getElementById("cart-total").textContent=total.toFixed(2);
 }
 
 function removeCartItem(index) {
-  cart.splice(index, 1);
+  cart.splice(index,1);
   saveCart();
   renderCart();
 }
 
+/* ==========================================
+   WHATSAPP ORDER CHECKOUT
+   ========================================== */
+
 function checkout() {
-  if (!cart.length) {
+  if(!cart.length) {
     alert("Your shopping bag is empty.");
     return;
   }
 
-  const lines = cart.map(item =>
-    `${item.name} | ${item.color} | Size ${item.size} | Qty ${item.quantity}`
-  ).join("\n");
+  // Enter your official WhatsApp number here.
+  // Ghana example format: 233XXXXXXXXX
+  const whatsappNumber="";
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity, 0
-  );
-
-  const message =
-    `Hello SHIFT! I would like to place an order:\n\n${lines}\n\nTotal: GH₵ ${total.toFixed(2)}`;
-
-  // Replace with your official business WhatsApp number.
-  const whatsappNumber = "";
-
-  if (!/^\d{10,15}$/.test(whatsappNumber)) {
-    alert("Online checkout is not configured yet. Add your official WhatsApp business number in script.js.");
+  if(!/^\d{10,15}$/.test(whatsappNumber)) {
+    alert("SHIFT WhatsApp checkout has not been configured yet.");
     return;
   }
 
+  const items=cart.map(item=>
+    `${item.name} | ${item.color} | ${item.size} | Qty: ${item.quantity}`
+  ).join("\n");
+
+  const total=cart.reduce(
+    (sum,item)=>sum+item.price*item.quantity,0
+  );
+
+  const message=
+    `Hello SHIFT! I want to order:\n\n${items}\n\nTotal: ${money(total)}`;
+
   window.open(
-    "https://wa.me/" + whatsappNumber +
-    "?text=" + encodeURIComponent(message),
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
     "_blank"
   );
 }
 
-saveCart();
-renderProducts();
+/* ==========================================
+   INITIALIZE WEBSITE
+   ========================================== */
+
+function initializeSHIFT() {
+  saveCart();
+  renderProducts("All");
+
+  console.log("SHIFT initialized successfully.");
+  console.log("Total products:",products.length);
+  console.log("Tops:",products.filter(p=>p.category==="Tops").length);
+  console.log("Bottoms:",products.filter(p=>p.category==="Bottoms").length);
+}
+
+initializeSHIFT();
